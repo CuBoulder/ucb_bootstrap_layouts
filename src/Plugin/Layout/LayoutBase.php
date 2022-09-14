@@ -21,17 +21,17 @@ abstract class LayoutBase extends LayoutDefault {
 
     $columnWidth = $this->configuration['column_width'];
     if ($columnWidth) {
-      $build['#attributes']['class'][] = 'ucb-layout__row-width--' . $columnWidth;
+      $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-width--' . $columnWidth;
     }
 
     $columnPaddingTop = $this->configuration['column_padding_top'];
     if ($columnPaddingTop !== 0) {
-      $build['#attributes']['class'][] = 'ucb-layout__row-padding-top--' . $columnPaddingTop;
+      $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-padding-top--' . $columnPaddingTop;
     }
 
     $columnPaddingBottom = $this->configuration['column_padding_bottom'];
     if ($columnPaddingBottom !== 0) {
-      $build['#attributes']['class'][] = 'ucb-layout__row-padding-bottom--' . $columnPaddingBottom;
+      $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-padding-bottom--' . $columnPaddingBottom;
     }
 
     $class = $this->configuration['class'];

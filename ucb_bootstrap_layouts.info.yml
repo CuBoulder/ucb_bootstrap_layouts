@@ -1,8 +1,8 @@
 name: UCB Bootstrap Layouts
 description: Custom layout builder functionality for our theme.
 type: module
-core: 8.x
-package: UCB Bootstrap Layouts
+core_version_requirement: '^8.9 || ^9'
+package: UCB Boostrap Layouts
 
 dependencies:
   - drupal:layout_builder

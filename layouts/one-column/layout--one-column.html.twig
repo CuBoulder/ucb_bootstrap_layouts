@@ -15,14 +15,14 @@
 {%
   set row_classes = [
     'row',
-    'ucb-layout__row',
-    'ucb-layout__row--one-column'
+    'ucb-bootstrap-layout__row',
+    'ucb-bootstrap-layout__row--one-column'
   ]
 %}
 
 {% if content %}
   {% if settings.background_color %}
-    <div class="ucb-layout__background-color--{{ settings.background_color }}">
+    <div class="ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
   {% endif %}
       <div{{ attributes.addClass( row_classes|join(' ') ) }}>
         <div {{ region_attributes.first.addClass('column', 'column--first') }}>

@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Drupal\ucb_bootstrap_layouts;
 
 /**
- * Provides constants for the UCB Bootstrap Layouts module.
+ * Provides constants for the Demo Layout module.
  */
 final class UCBLayout {
 
@@ -36,5 +36,7 @@ final class UCBLayout {
   public const ROW_BOTTOM_PADDING_80 = '80';
 
   public const ROW_BACKGROUND_COLOR_NONE = NULL;
+
+  public const ROW_BACKGROUND_COLOR_RED = 'red';
 
 }

@@ -1,4 +1,4 @@
-ucb_layout__one_column:
+ucb_bootstrap_layouts__one_column:
   label: 'One Column'
   path: layouts/one-column
   template: layout--one-column
@@ -11,7 +11,7 @@ ucb_layout__one_column:
     first:
       label: First
 
-ucb_layout__two_column:
+ucb_bootstrap_layouts__two_column:
   label: 'Two Column'
   path: layouts/two-column
   template: layout--two-column
