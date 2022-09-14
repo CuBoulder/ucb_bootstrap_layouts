@@ -24,6 +24,7 @@ abstract class LayoutBase extends LayoutDefault {
       $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-width--' . $columnWidth;
     }
 
+    /*
     $columnPaddingTop = $this->configuration['column_padding_top'];
     if ($columnPaddingTop !== 0) {
       $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-padding-top--' . $columnPaddingTop;
@@ -33,6 +34,7 @@ abstract class LayoutBase extends LayoutDefault {
     if ($columnPaddingBottom !== 0) {
       $build['#attributes']['class'][] = 'ucb-bootstrap-layout__row-padding-bottom--' . $columnPaddingBottom;
     }
+    */
 
     $class = $this->configuration['class'];
     if ($class) {
@@ -53,8 +55,8 @@ abstract class LayoutBase extends LayoutDefault {
       'background_color' => UCBLayout::ROW_BACKGROUND_COLOR_NONE,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
-      'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
-      'column_padding_bottom' => UCBLayout::ROW_BOTTOM_PADDING_NONE,
+      /*'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
+      'column_padding_bottom' => UCBLayout::ROW_BOTTOM_PADDING_NONE,*/
     ];
   }
 
@@ -65,8 +67,8 @@ abstract class LayoutBase extends LayoutDefault {
 
     $backgroundColorOptions = $this->getBackgroundColorOptions();
     $columnWidths = $this->getColumnWidths();
-    $paddingTopOptions = $this->getPaddingTopOptions();
-    $paddingBottomOptions = $this->getPaddingBottomOptions();
+    /*$paddingTopOptions = $this->getPaddingTopOptions();
+    $paddingBottomOptions = $this->getPaddingBottomOptions();*/
 
     $form['background'] = [
       '#type' => 'details',
@@ -98,6 +100,7 @@ abstract class LayoutBase extends LayoutDefault {
         '#required' => TRUE,
       ];
 
+      /*
       $form['layout']['column_padding_top'] = [
         '#type' => 'radios',
         '#title' => $this->t('Column Padding Top'),
@@ -113,6 +116,7 @@ abstract class LayoutBase extends LayoutDefault {
         '#default_value' => $this->configuration['column_padding_bottom'],
         '#required' => TRUE,
       ];
+      */
     }
 
     $form['extra'] = [
@@ -152,8 +156,8 @@ abstract class LayoutBase extends LayoutDefault {
     $this->configuration['background_color'] = $values['background']['background_color'];
     $this->configuration['class'] = $values['extra']['class'];
     $this->configuration['column_width'] = $values['layout']['column_width'];
-    $this->configuration['column_padding_top'] = $values['layout']['column_padding_top'];
-    $this->configuration['column_padding_bottom'] = $values['layout']['column_padding_bottom'];
+   /*$this->configuration['column_padding_top'] = $values['layout']['column_padding_top'];
+    $this->configuration['column_padding_bottom'] = $values['layout']['column_padding_bottom'];*/
   }
 
   /**
@@ -162,13 +166,14 @@ abstract class LayoutBase extends LayoutDefault {
    * @return array
    *   The top padding options.
    */
-  protected function getPaddingTopOptions(): array {
+  /*protected function getPaddingTopOptions(): array {
     return [
       UCBLayout::ROW_TOP_PADDING_NONE => $this->t('None'),
       UCBLayout::ROW_TOP_PADDING_40 => $this->t('40px'),
       UCBLayout::ROW_TOP_PADDING_80 => $this->t('80px'),
     ];
   }
+  */
 
   /**
    * Get the bottom padding options.
@@ -176,13 +181,14 @@ abstract class LayoutBase extends LayoutDefault {
    * @return array
    *   The bottom padding options.
    */
-  protected function getPaddingBottomOptions(): array {
+  /*protected function getPaddingBottomOptions(): array {
     return [
       UCBLayout::ROW_BOTTOM_PADDING_NONE => $this->t('None'),
       UCBLayout::ROW_BOTTOM_PADDING_40 => $this->t('40px'),
       UCBLayout::ROW_BOTTOM_PADDING_80 => $this->t('80px'),
     ];
   }
+  /*
 
   /**
    * Get the background color options.
@@ -193,7 +199,7 @@ abstract class LayoutBase extends LayoutDefault {
   protected function getBackgroundColorOptions(): array {
     return [
       UCBLayout::ROW_BACKGROUND_COLOR_NONE => $this->t('None'),
-      UCBLayout::ROW_BACKGROUND_COLOR_RED => $this->t('Red'),
+      UCBLayout::ROW_BACKGROUND_COLOR_GOLD => $this->t('Gold'),
     ];
   }
 

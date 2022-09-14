@@ -6,7 +6,7 @@ declare(strict_types = 1);
  * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
  */
 function ucb_bootstrap_layouts_plugin_filter_layout__layout_builder_alter(array &$definitions): void {
-  // Remove all non-demo layouts from Layout Builder.
+  // Remove all non-default layouts from Layout Builder.
   foreach ($definitions as $id => $definition) {
     if (!preg_match('/^ucb_bootstrap_layouts__/', $id)) {
       unset($definitions[$id]);

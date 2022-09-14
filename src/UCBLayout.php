@@ -5,23 +5,31 @@ declare(strict_types = 1);
 namespace Drupal\ucb_bootstrap_layouts;
 
 /**
- * Provides constants for the Demo Layout module.
+ * Provides constants for the UCB Layout module.
  */
 final class UCBLayout {
 
-  public const ROW_WIDTH_100 = '100';
+  public const ROW_WIDTH_100 = '12';
 
-  public const ROW_WIDTH_75 = '75';
+  public const ROW_WIDTH_75 = '9';
 
-  public const ROW_WIDTH_50 = '50';
+  public const ROW_WIDTH_50 = '6';
 
-  public const ROW_WIDTH_25 = '25';
+  public const ROW_WIDTH_25 = '3';
 
-  public const ROW_WIDTH_25_75 = '25-75';
+  public const ROW_WIDTH_34_66 = '4-8';
 
-  public const ROW_WIDTH_50_50 = '50-50';
+  public const ROW_WIDTH_50_50 = '6-6';
 
-  public const ROW_WIDTH_75_25 = '75-25';
+  public const ROW_WIDTH_66_34 = '8-4';
+
+  public const ROW_WIDTH_25_25_50 = '3-3-6';
+
+  public const ROW_WIDTH_33_33_33 = '4-4-4';
+
+  public const ROW_WIDTH_50_25_25 = '6-3-3';
+
+  public const ROW_WIDTH_25_25_25_25 = '3-3-3-3';
 
   public const ROW_TOP_PADDING_NONE = '0';
 
@@ -35,8 +43,8 @@ final class UCBLayout {
 
   public const ROW_BOTTOM_PADDING_80 = '80';
 
-  public const ROW_BACKGROUND_COLOR_NONE = NULL;
+  public const ROW_BACKGROUND_COLOR_NONE = 'white';
 
-  public const ROW_BACKGROUND_COLOR_RED = 'red';
+  public const ROW_BACKGROUND_COLOR_GOLD = 'gold';
 
 }

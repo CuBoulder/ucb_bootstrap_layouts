@@ -25,7 +25,7 @@
     <div class="ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
   {% endif %}
       <div{{ attributes.addClass( row_classes|join(' ') ) }}>
-        <div {{ region_attributes.first.addClass('column', 'column--first') }}>
+        <div {{ region_attributes.first.addClass('column', 'column--first', 'col-12') }}>
           {{ content.first }}
         </div>
       </div>

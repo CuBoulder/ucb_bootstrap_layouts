@@ -7,18 +7,16 @@ namespace Drupal\ucb_bootstrap_layouts\Plugin\Layout;
 use Drupal\ucb_bootstrap_layouts\UCBLayout;
 
 /**
- * Provides a plugin class for two column layouts.
+ * Provides a plugin class for four column layouts.
  */
-final class TwoColumnLayout extends LayoutBase {
+final class FourColumnLayout extends LayoutBase {
 
   /**
    * {@inheritdoc}
    */
   protected function getColumnWidths(): array {
     return [
-      UCBLayout::ROW_WIDTH_34_66 => $this->t('34% / 66%'),
-      UCBLayout::ROW_WIDTH_50_50 => $this->t('50% / 50%'),
-      UCBLayout::ROW_WIDTH_66_34 => $this->t('66% / 34%'),
+      UCBLayout::ROW_WIDTH_25_25_25_25 => $this->t('25% / 25% / 25% / 25%'),
     ];
   } 
 
@@ -26,7 +24,7 @@ final class TwoColumnLayout extends LayoutBase {
    * {@inheritdoc}
    */
   protected function getDefaultColumnWidth(): string {
-    return UCBLayout::ROW_WIDTH_50_50;
+    return UCBLayout::ROW_WIDTH_25_25_25_25;
   }
 
 }

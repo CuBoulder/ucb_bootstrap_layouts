@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a two-column layout.
+ * Default theme implementation to display a three-column layout.
  *
  * Available variables:
  * - content: The content for this layout.
@@ -19,7 +19,7 @@
   set row_classes = [
     'row',
     'ucb-bootstrap-layout__row',
-    'ucb-bootstrap-layout__row--two-column'
+    'ucb-bootstrap-layout__row--three-column'
   ]
 %}
 
@@ -38,6 +38,12 @@
         {% if content.second %}
           <div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12') }}>
             {{ content.second }}
+          </div>
+        {% endif %}
+
+         {% if content.third %}
+          <div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-12') }}>
+            {{ content.third }}
           </div>
         {% endif %}
 

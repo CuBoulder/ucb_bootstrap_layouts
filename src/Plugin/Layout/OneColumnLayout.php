@@ -16,9 +16,6 @@ final class OneColumnLayout extends LayoutBase {
    */
   protected function getColumnWidths(): array {
     return [
-      UCBLayout::ROW_WIDTH_25 => $this->t('25%'),
-      UCBLayout::ROW_WIDTH_50 => $this->t('50%'),
-      UCBLayout::ROW_WIDTH_75 => $this->t('75%'),
       UCBLayout::ROW_WIDTH_100 => $this->t('100%'),
     ];
   }
