@@ -1,0 +1,6 @@
+{
+    "name": "cu-boulder/ucb_bootstrap_layouts",
+    "description": "Removes the default Drupal Layout Builder layouts and replaces them with bootstrap layouts",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-custom-module"
+}
