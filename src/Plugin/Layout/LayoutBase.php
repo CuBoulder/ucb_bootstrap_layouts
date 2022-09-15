@@ -53,6 +53,7 @@ abstract class LayoutBase extends LayoutDefault {
   public function defaultConfiguration(): array {
     return [
       'background_color' => UCBLayout::ROW_BACKGROUND_COLOR_NONE,
+      'container_width' => UCBLayout::ROW_CONTAINER_WIDTH_REGULAR,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
       /*'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
@@ -67,8 +68,11 @@ abstract class LayoutBase extends LayoutDefault {
 
     $backgroundColorOptions = $this->getBackgroundColorOptions();
     $columnWidths = $this->getColumnWidths();
-    /*$paddingTopOptions = $this->getPaddingTopOptions();
-    $paddingBottomOptions = $this->getPaddingBottomOptions();*/
+    $containerWidths = $this->getContainerWidths();
+    /*
+    $paddingTopOptions = $this->getPaddingTopOptions();
+    $paddingBottomOptions = $this->getPaddingBottomOptions();
+    */
 
     $form['background'] = [
       '#type' => 'details',
@@ -97,6 +101,14 @@ abstract class LayoutBase extends LayoutDefault {
         '#title' => $this->t('Column Width'),
         '#options' => $columnWidths,
         '#default_value' => $this->configuration['column_width'],
+        '#required' => TRUE,
+      ];
+
+      $form['layout']['container_width'] = [
+        '#type' => 'radios',
+        '#title' => $this->t('Container Width'),
+        '#options' => $containerWidths,
+        '#default_value' => $this->configuration['container_width'],
         '#required' => TRUE,
       ];
 
@@ -156,6 +168,7 @@ abstract class LayoutBase extends LayoutDefault {
     $this->configuration['background_color'] = $values['background']['background_color'];
     $this->configuration['class'] = $values['extra']['class'];
     $this->configuration['column_width'] = $values['layout']['column_width'];
+    $this->configuration['container_width'] = $values['layout']['container_width'];
    /*$this->configuration['column_padding_top'] = $values['layout']['column_padding_top'];
     $this->configuration['column_padding_bottom'] = $values['layout']['column_padding_bottom'];*/
   }
@@ -199,6 +212,9 @@ abstract class LayoutBase extends LayoutDefault {
   protected function getBackgroundColorOptions(): array {
     return [
       UCBLayout::ROW_BACKGROUND_COLOR_NONE => $this->t('None'),
+      UCBLayout::ROW_BACKGROUND_COLOR_LIGHT_GRAY => $this->t('Light Gray'),
+      UCBLayout::ROW_BACKGROUND_COLOR_DARK_GRAY => $this->t('Dark Gray'),
+      UCBLayout::ROW_BACKGROUND_COLOR_BLACK => $this->t('Black'),
       UCBLayout::ROW_BACKGROUND_COLOR_GOLD => $this->t('Gold'),
     ];
   }
@@ -218,6 +234,21 @@ abstract class LayoutBase extends LayoutDefault {
    *   The default column width.
    */
   abstract protected function getDefaultColumnWidth(): string;
+
+
+  /**
+   * Get container width. 
+   *  
+   * @return array
+   *     The container width.
+   * 
+   **/
+  protected function getContainerWidths(): array {
+    return [
+      UCBLayout::ROW_CONTAINER_WIDTH_REGULAR => $this->t('Centered'),
+      UCBLayout::ROW_CONTAINER_WIDTH_FLUID => $this->t('Edge-to-edge'),
+    ];
+  }
 
   /**
    * Determine if this layout has background settings.
