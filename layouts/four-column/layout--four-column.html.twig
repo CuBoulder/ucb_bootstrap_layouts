@@ -23,8 +23,12 @@
   ]
 %}
 
+{% if settings.container_width == 'edge-to-edge' %}
+    {% set row_classes = row_classes|merge(['g-0']) %}
+{% endif %}
+
 {% if content %}
-  {% if settings.background_color %}
+  {% if settings.container_width == 'container' %}
     <div class="ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ settings.container_width }}">
   {% endif %}
       <div{{ attributes.addClass( row_classes|join(' ') ) }}>
@@ -55,7 +59,7 @@
 
         </div>
       </div>
-  {% if settings.background_color %}
+  {% if settings.container_width == 'container' %}
     </div>
   {% endif %}
 {% endif %}

@@ -53,7 +53,7 @@ final class UCBLayout {
   
   public const ROW_BACKGROUND_COLOR_GOLD = 'gold';
 
-  public const ROW_CONTAINER_WIDTH_FLUID = 'container-fluid';
+  public const ROW_CONTAINER_WIDTH_FLUID = 'edge-to-edge';
 
   public const ROW_CONTAINER_WIDTH_REGULAR = 'container';
 
