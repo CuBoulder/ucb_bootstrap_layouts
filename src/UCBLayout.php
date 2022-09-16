@@ -27,6 +27,8 @@ final class UCBLayout {
 
   public const ROW_WIDTH_33_33_33 = '4-4-4';
 
+  public const ROW_WIDTH_25_50_25 = '3-6-3';
+
   public const ROW_WIDTH_50_25_25 = '6-3-3';
 
   public const ROW_WIDTH_25_25_25_25 = '3-3-3-3';

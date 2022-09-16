@@ -13,6 +13,7 @@
 #}
 
 {# Get the column widths #}
+
 {% set column_widths = settings.column_width|split('-') %}
 
 {%
@@ -24,37 +25,37 @@
 %}
 
 {% if settings.container_width == 'edge-to-edge' %}
-    {% set row_classes = row_classes|merge(['g-0']) %}
+	{% set row_classes = row_classes|merge(['g-0']) %}
 {% endif %}
 
 {% if content %}
-  {% if settings.container_width == 'container' %}
-    <div class="ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ settings.container_width }}">
-  {% endif %}
-      <div{{ attributes.addClass( row_classes|join(' ') ) }}>
+	<div class="ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
+		{% if settings.container_width == 'container' %}
+			<div class="{{ settings.container_width }}">
+			{% endif %}
+			<div{{attributes.addClass(row_classes|join(' '))}}>
 
-        {% if content.first %}
-          <div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12') }}>
-            {{ content.first }}
-          </div>
-        {% endif %}
+				{% if content.first %}
+					<div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12') }}>
+						{{ content.first }}
+					</div>
+				{% endif %}
 
-        {% if content.second %}
-          <div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12') }}>
-            {{ content.second }}
-          </div>
-        {% endif %}
+				{% if content.second %}
+					<div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12') }}>
+						{{ content.second }}
+					</div>
+				{% endif %}
 
-         {% if content.third %}
-          <div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-12') }}>
-            {{ content.third }}
-          </div>
-        {% endif %}
+				{% if content.third %}
+					<div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-12') }}>
+						{{ content.third }}
+					</div>
+				{% endif %}
 
-        </div>
-      </div>
-  {% if settings.container_width == 'container' %}
-    </div>
-  {% endif %}
+			</div>
+			{% if settings.container_width == 'container' %}
+			</div>
+		{% endif %}
+	</div>
 {% endif %}
-

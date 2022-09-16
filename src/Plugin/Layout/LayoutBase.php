@@ -106,7 +106,7 @@ abstract class LayoutBase extends LayoutDefault {
 
       $form['layout']['container_width'] = [
         '#type' => 'radios',
-        '#title' => $this->t('Container Width'),
+        '#title' => $this->t('Content Width'),
         '#options' => $containerWidths,
         '#default_value' => $this->configuration['container_width'],
         '#required' => TRUE,
@@ -245,7 +245,7 @@ abstract class LayoutBase extends LayoutDefault {
    **/
   protected function getContainerWidths(): array {
     return [
-      UCBLayout::ROW_CONTAINER_WIDTH_REGULAR => $this->t('Centered'),
+      UCBLayout::ROW_CONTAINER_WIDTH_REGULAR => $this->t('Contained'),
       UCBLayout::ROW_CONTAINER_WIDTH_FLUID => $this->t('Edge-to-edge'),
     ];
   }
