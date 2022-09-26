@@ -24,9 +24,15 @@
 	{% set row_classes = row_classes|merge(['g-0']) %}
 {% endif %}
 
+{% if (settings.background_color == 'black') or (settings.background_color == 'dark-gray') %}
+	{% set row_color_settings = "ucb-bootstrap-layout-section-dark" %}
+{% else %}
+	{% set row_color_settings = "ucb-bootstrap-layout-section-light" %}
+{% endif %}
+
 
 {% if content %}
-	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
+	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }}">
 		{% if settings.container_width == 'container' %}
 			<div class="{{ settings.container_width }}">
 			{% endif %}
