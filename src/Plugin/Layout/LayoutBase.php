@@ -131,6 +131,7 @@ abstract class LayoutBase extends LayoutDefault {
       */
     }
 
+    /*
     $form['extra'] = [
       '#type' => 'details',
       '#title' => $this->t('Extra'),
@@ -147,11 +148,13 @@ abstract class LayoutBase extends LayoutDefault {
         'placeholder' => 'class-one class-two',
       ],
     ];
+    */
 
     $form['#attached']['library'][] = 'ucb_bootstrap_layouts/layout_builder';
 
     return $form;
   }
+
 
   /**
    * {@inheritdoc}
@@ -166,7 +169,7 @@ abstract class LayoutBase extends LayoutDefault {
     $values = $form_state->getValues();
 
     $this->configuration['background_color'] = $values['background']['background_color'];
-    $this->configuration['class'] = $values['extra']['class'];
+    /*$this->configuration['class'] = $values['extra']['class'];*/
     $this->configuration['column_width'] = $values['layout']['column_width'];
     $this->configuration['container_width'] = $values['layout']['container_width'];
    /*$this->configuration['column_padding_top'] = $values['layout']['column_padding_top'];
@@ -271,8 +274,10 @@ abstract class LayoutBase extends LayoutDefault {
    * @return bool
    *   If this layout has extra settings.
    */
+  /*
   protected function hasExtraSettings(): bool {
     return $this->configuration['class'] || $this->configuration['hero'];
   }
+  */
 
 }
