@@ -34,8 +34,18 @@
 	{% set row_color_settings = "ucb-bootstrap-layout-section-light" %}
 {% endif %}
 
+{% if settings.background_image_styles %}
+	{% if settings.overlay_color == 'black' %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
+	{% else %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-light" %}
+	{% endif %}
+{% else %}
+	{% set row_overlay_settings = "" %}
+{% endif %}
+
 {% if content %}
-	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }}">
+	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }} {{ row_overlay_settings }}" style="{{ settings.background_image_styles }}">
 		{% if settings.container_width == 'container' %}
 			<div class="{{ settings.container_width }}">
 			{% endif %}

@@ -6,3 +6,5 @@ package: UCB Boostrap Layouts
 
 dependencies:
   - drupal:layout_builder
+  - drupal:media
+  - drupal:media_library
