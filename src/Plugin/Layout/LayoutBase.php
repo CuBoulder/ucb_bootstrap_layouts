@@ -290,8 +290,8 @@ abstract class LayoutBase extends LayoutDefault {
    */
   protected function getOverlayColorOptions(): array {
     return [
-      UCBLayout::ROW_OVERLAY_COLOR_BLACK => $this->t('Black'),
-      UCBLayout::ROW_OVERLAY_COLOR_WHITE => $this->t('White'),
+      UCBLayout::ROW_OVERLAY_COLOR_BLACK => $this->t('Dark'),
+      UCBLayout::ROW_OVERLAY_COLOR_WHITE => $this->t('Light'),
     ];
   }
 

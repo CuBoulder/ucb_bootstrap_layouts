@@ -32,9 +32,9 @@
 
 {% if settings.background_image_styles %}
 	{% if settings.overlay_color == 'black' %}
-		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-black" %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
 	{% else %}
-		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-white" %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-light" %}
 	{% endif %}
 {% else %}
 	{% set row_overlay_settings = "" %}
