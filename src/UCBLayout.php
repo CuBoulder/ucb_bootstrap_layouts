@@ -59,4 +59,7 @@ final class UCBLayout {
 
   public const ROW_CONTAINER_WIDTH_REGULAR = 'container';
 
+  public const ROW_OVERLAY_COLOR_BLACK = 'black';
+  
+  public const ROW_OVERLAY_COLOR_WHITE = 'white';
 }
