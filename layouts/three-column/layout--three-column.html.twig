@@ -24,9 +24,6 @@
   ]
 %}
 
-{% if settings.container_width == 'edge-to-edge' %}
-	{% set row_classes = row_classes|merge(['g-0']) %}
-{% endif %}
 
 {% if (settings.background_color == 'black') or (settings.background_color == 'dark-gray') %}
 	{% set row_color_settings = "ucb-bootstrap-layout-section-dark" %}
@@ -46,32 +43,25 @@
 
 {% if content %}
 	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }} {{ row_overlay_settings }}" style="{{ settings.background_image_styles }}">
-		{% if settings.container_width == 'container' %}
-			<div class="{{ settings.container_width }}">
+		<div{{attributes.addClass(row_classes|join(' '))}}>
+
+			{% if content.first %}
+				<div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12') }}>
+					{{ content.first }}
+				</div>
 			{% endif %}
-			<div{{attributes.addClass(row_classes|join(' '))}}>
 
-				{% if content.first %}
-					<div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12') }}>
-						{{ content.first }}
-					</div>
-				{% endif %}
+			{% if content.second %}
+				<div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12') }}>
+					{{ content.second }}
+				</div>
+			{% endif %}
 
-				{% if content.second %}
-					<div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12') }}>
-						{{ content.second }}
-					</div>
-				{% endif %}
-
-				{% if content.third %}
-					<div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-12') }}>
-						{{ content.third }}
-					</div>
-				{% endif %}
-
-			</div>
-			{% if settings.container_width == 'container' %}
-			</div>
-		{% endif %}
+			{% if content.third %}
+				<div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-12') }}>
+					{{ content.third }}
+				</div>
+			{% endif %}
+		</div>
 	</div>
 {% endif %}
