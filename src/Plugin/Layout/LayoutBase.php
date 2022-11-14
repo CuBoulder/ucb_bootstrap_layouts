@@ -60,7 +60,7 @@ abstract class LayoutBase extends LayoutDefault {
       /**'container_width' => UCBLayout::ROW_CONTAINER_WIDTH_REGULAR,**/
       'background_image' == NULL,
       'background_image_styles' == NULL,
-      'overlay_color' => UCBLayout::ROW_OVERLAY_COLOR_BLACK,
+      'overlay_color' => UCBLayout::ROW_OVERLAY_COLOR_NONE,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
       /*'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
@@ -201,8 +201,11 @@ abstract class LayoutBase extends LayoutDefault {
     if ($overlay_selection == "black"){
       $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
     }
-    else {
+    elseif ($overlay_selection == "white"){
       $overlay_styles = "linear-gradient(rgb(200, 200, 200, 0.7), rgb(200, 200, 200, 0.7))";
+    }
+    else {
+      $overlay_styles = "none";
     }
 
 
@@ -292,6 +295,7 @@ abstract class LayoutBase extends LayoutDefault {
    */
   protected function getOverlayColorOptions(): array {
     return [
+      UCBLayout::ROW_OVERLAY_COLOR_NONE => $this->t('None'),
       UCBLayout::ROW_OVERLAY_COLOR_BLACK => $this->t('Dark'),
       UCBLayout::ROW_OVERLAY_COLOR_WHITE => $this->t('Light'),
     ];
