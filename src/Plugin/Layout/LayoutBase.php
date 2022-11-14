@@ -205,7 +205,7 @@ abstract class LayoutBase extends LayoutDefault {
       $overlay_styles = "linear-gradient(rgb(200, 200, 200, 0.7), rgb(200, 200, 200, 0.7))";
     }
     else {
-      $overlay_styles = "linear-gradient(rgb(255, 255, 255, 0.0), rgb(255, 255, 255, 0.0))";
+      $overlay_styles = "none";
     }
 
 
