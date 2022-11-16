@@ -61,6 +61,7 @@ abstract class LayoutBase extends LayoutDefault {
       'background_image' == NULL,
       'background_image_styles' == NULL,
       'overlay_color' => UCBLayout::ROW_OVERLAY_COLOR_NONE,
+      'background_effect' => UCBLayout::ROW_BACKGROUND_EFFECT_SCROLL,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
       /*'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
@@ -75,6 +76,7 @@ abstract class LayoutBase extends LayoutDefault {
 
     $backgroundColorOptions = $this->getBackgroundColorOptions();
     $overlayColorOptions = $this->getOverlayColorOptions();
+    $backgroundEffectOptions = $this->getBackgroundEffectOptions();
     $columnWidths = $this->getColumnWidths();
     /**$containerWidths = $this->getContainerWidths();**/
     /*
@@ -110,6 +112,14 @@ abstract class LayoutBase extends LayoutDefault {
       '#options' => $overlayColorOptions,
       '#default_value' => $this->configuration['overlay_color'],
       '#description' => $this->t('Only applied if a background image is chosen.'),
+    ];
+
+    $form['background']['background_effect'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Background Effect'),
+      '#options' => $backgroundEffectOptions,
+      '#default_value' => $this->configuration['background_effect'],
+      '#description' => $this->t('Choose an effect for the background image.'),
     ];
 
     if (!empty($columnWidths)) {
@@ -237,7 +247,7 @@ abstract class LayoutBase extends LayoutDefault {
     $this->configuration['column_padding_bottom'] = $values['layout']['column_padding_bottom'];*/
     $this->configuration['background_image_styles'] =  $new_styles;
     $this->configuration['overlay_color'] = $values['background']['overlay_color'];
-
+    $this->configuration['background_effect'] = $values['background']['background_effect'];
   }
 
   /**
@@ -298,6 +308,20 @@ abstract class LayoutBase extends LayoutDefault {
       UCBLayout::ROW_OVERLAY_COLOR_NONE => $this->t('None'),
       UCBLayout::ROW_OVERLAY_COLOR_BLACK => $this->t('Dark'),
       UCBLayout::ROW_OVERLAY_COLOR_WHITE => $this->t('Light'),
+    ];
+  }
+
+  /**
+   * Get the background effect options.
+   *
+   * @return array
+   *   The background effect options.
+   */
+  protected function getBackgroundEffectOptions(): array {
+    return [
+      UCBLayout::ROW_BACKGROUND_EFFECT_SCROLL => $this->t('Fixed'),
+      UCBLayout::ROW_BACKGROUND_EFFECT_FIXED => $this->t('Scroll'),
+      UCBLayout::ROW_BACKGROUND_EFFECT_PARALLAX => $this->t('Parallax'),
     ];
   }
 
