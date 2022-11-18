@@ -64,4 +64,10 @@ final class UCBLayout {
   public const ROW_OVERLAY_COLOR_BLACK = 'black';
   
   public const ROW_OVERLAY_COLOR_WHITE = 'white';
+
+  public const ROW_BACKGROUND_EFFECT_FIXED = 'scroll';
+
+  public const ROW_BACKGROUND_EFFECT_SCROLL = 'fixed';
+
+  public const ROW_BACKGROUND_EFFECT_PARALLAX = 'parallax';
 }
