@@ -40,7 +40,7 @@
 {% if settings.background_effect == "fixed" %}
 	{% set row_background_effect = "fixed-background" %}
 {% elseif settings.background_effect == "parallax" %}
-	{% set row_background_effect = "parallaxie" %}
+	{% set row_background_effect = "jarallax" %}
 {% else %}
 	{% set row_background_effect = "scrolling-background" %}
 {% endif %}
@@ -48,7 +48,9 @@
 {% if settings.background_effect == "parallax" %}
 	<script>
 		window.onload = function() {
-			jQuery('.parallaxie').parallaxie();
+			jarallax(document.querySelectorAll('.jarallax'), {
+  				speed: 0.2,
+			});
 		};
 	</script>
 {% endif %}
