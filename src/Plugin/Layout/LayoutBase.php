@@ -205,7 +205,7 @@ abstract class LayoutBase extends LayoutDefault {
     $regex = "/^\d*+(?:px|%)$/";
     if (!preg_match($regex, $submitted_value))
     {
-      $form_state->setError($element, t('Number must end in px or %'));
+      $form_state->setError($element, t('<p style="color: red;">Requires a number that ends with px or %</p>'));
     }
   }
 
