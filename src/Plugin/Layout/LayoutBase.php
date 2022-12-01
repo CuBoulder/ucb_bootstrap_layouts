@@ -64,8 +64,10 @@ abstract class LayoutBase extends LayoutDefault {
       'background_effect' => UCBLayout::ROW_BACKGROUND_EFFECT_SCROLL,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
-      /*'column_padding_top' => UCBLayout::ROW_TOP_PADDING_NONE,
-      'column_padding_bottom' => UCBLayout::ROW_BOTTOM_PADDING_NONE,*/
+      'section_padding_top' => "0px",
+      'section_padding_right' => "0px",
+      'section_padding_bottom' => "0px",
+      'section_padding_left' => "0px",
     ];
   }
 
@@ -87,7 +89,7 @@ abstract class LayoutBase extends LayoutDefault {
     $form['background'] = [
       '#type' => 'details',
       '#title' => $this->t('Background'),
-      '#open' => $this->hasBackgroundSettings(),
+      '#open' => FALSE,
       '#weight' => 30,
     ];
 
@@ -138,59 +140,74 @@ abstract class LayoutBase extends LayoutDefault {
         '#required' => TRUE,
       ];
 
-      /*
-      $form['layout']['container_width'] = [
-        '#type' => 'radios',
-        '#title' => $this->t('Content Width'),
-        '#options' => $containerWidths,
-        '#default_value' => $this->configuration['container_width'],
-        '#required' => TRUE,
-      ];
-      */
-
-      /*
-      $form['layout']['column_padding_top'] = [
-        '#type' => 'radios',
-        '#title' => $this->t('Column Padding Top'),
-        '#options' => $paddingTopOptions,
-        '#default_value' => $this->configuration['column_padding_top'],
-        '#required' => TRUE,
+      $form['spacing'] = [
+        '#type' => 'details',
+        '#title' => $this->t('Spacing'),
+        '#open' => FALSE,
+        '#weight' => 40,
       ];
 
-      $form['layout']['column_padding_bottom'] = [
-        '#type' => 'radios',
-        '#title' => $this->t('Column Padding Bottom'),
-        '#options' => $paddingBottomOptions,
-        '#default_value' => $this->configuration['column_padding_bottom'],
+      
+      $form['spacing']['section_padding_top'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Top Section Padding'),
+        '#default_value' => $this->configuration['section_padding_top'],
         '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
       ];
-      */
+
+      $form['spacing']['section_padding_right'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Right Section Padding'),
+        '#default_value' => $this->configuration['section_padding_right'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['section_padding_bottom'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Bottom Section Padding'),
+        '#default_value' => $this->configuration['section_padding_bottom'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['section_padding_left'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Left Section Padding'),
+        '#default_value' => $this->configuration['section_padding_left'],
+        '#required' => false,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
     }
 
-    /*
-    $form['extra'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Extra'),
-      '#open' => $this->hasExtraSettings(),
-      '#weight' => 40,
-    ];
-
-    $form['extra']['class'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Custom Class'),
-      '#description' => $this->t('Enter custom css classes for this row. Separate multiple classes by a space and do not include a period.'),
-      '#default_value' => $this->configuration['class'],
-      '#attributes' => [
-        'placeholder' => 'class-one class-two',
-      ],
-    ];
-    */
 
     $form['#attached']['library'][] = 'ucb_bootstrap_layouts/layout_builder';
 
     return $form;
   }
 
+  public function paddingFormatValidation($element, FormStateInterface $form_state)
+  {
+    $submitted_value = $element['#value'];
+    $regex = "/^\d*+(?:px|%)$/";
+    if (!preg_match($regex, $submitted_value))
+    {
+      $form_state->setError($element, t('Number must end in px or %'));
+    }
+  }
 
   /**
    * {@inheritdoc}
@@ -207,6 +224,10 @@ abstract class LayoutBase extends LayoutDefault {
     $overlay_selection = $values['background']['overlay_color'];
     $overlay_styles = "";
     $new_styles = "";
+    $top_padding = $values['spacing']['section_padding_top'];
+    $right_padding = $values['spacing']['section_padding_right'];
+    $bottom_padding = $values['spacing']['section_padding_bottom'];
+    $left_padding = $values['spacing']['section_padding_left'];
 
     if ($overlay_selection == "black"){
       $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
@@ -230,6 +251,7 @@ abstract class LayoutBase extends LayoutDefault {
           'background-position: center;',
           'background-size: cover;',
           'background-repeat: no-repeat;',
+          'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
         ];
 
         $new_styles = implode(' ', $media_image_styles);
@@ -243,11 +265,13 @@ abstract class LayoutBase extends LayoutDefault {
     $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
     $this->configuration['column_width'] = $values['layout']['column_width'];
     /**$this->configuration['container_width'] = $values['layout']['container_width'];**/
-   /*$this->configuration['column_padding_top'] = $values['layout']['column_padding_top'];
-    $this->configuration['column_padding_bottom'] = $values['layout']['column_padding_bottom'];*/
     $this->configuration['background_image_styles'] =  $new_styles;
     $this->configuration['overlay_color'] = $values['background']['overlay_color'];
     $this->configuration['background_effect'] = $values['background']['background_effect'];
+    $this->configuration['section_padding_top'] = $values['spacing']['section_padding_top'];
+    $this->configuration['section_padding_right'] = $values['spacing']['section_padding_right'];
+    $this->configuration['section_padding_bottom'] = $values['spacing']['section_padding_bottom'];
+    $this->configuration['section_padding_left'] = $values['spacing']['section_padding_left'];
   }
 
   /**
