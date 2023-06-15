@@ -70,4 +70,10 @@ final class UCBLayout {
   public const ROW_BACKGROUND_EFFECT_SCROLL = 'fixed';
 
   public const ROW_BACKGROUND_EFFECT_PARALLAX = 'parallax';
+
+  public const ROW_CONTENT_FRAME_COLOR_NONE = 'white';
+
+  public const ROW_CONTENT_FRAME_COLOR_LIGHT_GRAY = 'light-gray';
+
+  public const ROW_CONTENT_FRAME_COLOR_DARK_GRAY = 'dark-gray';
 }

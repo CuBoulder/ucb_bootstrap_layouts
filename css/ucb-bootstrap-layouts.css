@@ -115,6 +115,31 @@ color: var(--ucb-white);
   text-decoration: none;
 }
 
+.ucb-boostrap-layout-section .column .block:last-child {
+  margin-bottom: 1em;
+}
+
+.ucb-boostrap-layout-section .column .block {
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+.ucb-boostrap-layout-section .column .block:first-child {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+}
+
+/*** Content Frame ***/
+.ucb-content-frame.content-frame-light-gray .container {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.ucb-content-frame.content-frame-dark-gray .container {
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--ucb-white);
+}
+
 /*** exit buttons for workflow ***/
 .ui-widget.ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar button.ui-dialog-titlebar-close::before {
   content: '\f057';
@@ -127,7 +152,7 @@ color: var(--ucb-white);
   content: '\f057';
   font-family: 'Font Awesome 5 Free';
   font-size: 24px;
-  color: white;
+  color: var(--ucb-white);
 }
 
 /*** !important needed to override inline background image styles ***/
