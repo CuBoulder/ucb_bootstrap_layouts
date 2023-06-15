@@ -9,16 +9,19 @@
 .js-form-item-layout-settings-layout-container-width .form-radio:checked,
 .js-form-item-layout-settings-background-overlay-color .form-radio:checked,
 .js-form-item-layout-settings-background-background-effect .form-radio:checked,
+.js-form-item-layout-settings-background-content-frame-color .form-radio:checked,
 .js-form-item-layout-settings-background-background-color .form-radio:hover,
 .js-form-item-layout-settings-layout-column-width .form-radio:hover,
 .js-form-item-layout-settings-layout-container-width .form-radio:hover,
 .js-form-item-layout-settings-background-overlay-color .form-radio:hover,
 .js-form-item-layout-settings-background-background-effect .form-radio:hover,
+.js-form-item-layout-settings-background-content-frame-color .form-radio:hover,
 .js-form-item-layout-settings-background-background-color .form-radio:hover:focus,
 .js-form-item-layout-settings-layout-column-width .form-radio:hover:focus,
 .js-form-item-layout-settings-layout-container-width .form-radio:hover:focus,
 .js-form-item-layout-settings-background-overlay-color .form-radio:hover:focus,
-.js-form-item-layout-settings-background-background-effect .form-radio:hover:focus {
+.js-form-item-layout-settings-background-background-effect .form-radio:hover:focus,
+.js-form-item-layout-settings-background-content-frame-color .form-radio:hover:focus {
     box-shadow: none!important;
     -webkit-box-shadow: none!important;
 }
