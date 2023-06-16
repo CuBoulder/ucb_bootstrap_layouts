@@ -57,6 +57,7 @@ abstract class LayoutBase extends LayoutDefault {
   public function defaultConfiguration(): array {
     return [
       'background_color' => UCBLayout::ROW_BACKGROUND_COLOR_NONE,
+      'content_frame_color' => UCBLayout::ROW_CONTENT_FRAME_COLOR_NONE,
       /**'container_width' => UCBLayout::ROW_CONTAINER_WIDTH_REGULAR,**/
       'background_image' == NULL,
       'background_image_styles' == NULL,
@@ -77,6 +78,7 @@ abstract class LayoutBase extends LayoutDefault {
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
 
     $backgroundColorOptions = $this->getBackgroundColorOptions();
+    $contentFrameColorOptions = $this->getContentFrameColorOptions();
     $overlayColorOptions = $this->getOverlayColorOptions();
     $backgroundEffectOptions = $this->getBackgroundEffectOptions();
     $columnWidths = $this->getColumnWidths();
@@ -122,6 +124,14 @@ abstract class LayoutBase extends LayoutDefault {
       '#options' => $backgroundEffectOptions,
       '#default_value' => $this->configuration['background_effect'],
       '#description' => $this->t('Choose an effect for the background image.'),
+    ];
+
+    $form['background']['content_frame_color'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Content Frame Color'),
+      '#options' => $contentFrameColorOptions,
+      '#default_value' => $this->configuration['content_frame_color'],
+      '#description' => $this->t('Choose a color for the inner frame of the content.'),
     ];
 
     if (!empty($columnWidths)) {
@@ -268,6 +278,7 @@ abstract class LayoutBase extends LayoutDefault {
     $this->configuration['background_image_styles'] =  $new_styles;
     $this->configuration['overlay_color'] = $values['background']['overlay_color'];
     $this->configuration['background_effect'] = $values['background']['background_effect'];
+    $this->configuration['content_frame_color'] = $values['background']['content_frame_color'];
     $this->configuration['section_padding_top'] = $values['spacing']['section_padding_top'];
     $this->configuration['section_padding_right'] = $values['spacing']['section_padding_right'];
     $this->configuration['section_padding_bottom'] = $values['spacing']['section_padding_bottom'];
@@ -319,6 +330,21 @@ abstract class LayoutBase extends LayoutDefault {
       UCBLayout::ROW_BACKGROUND_COLOR_GOLD => $this->t('Gold'),
     ];
   }
+
+   /**
+   * Get the content frame color options.
+   *
+   * @return array
+   *   The content frame color options.
+   */
+  protected function getContentFrameColorOptions(): array {
+    return [
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_NONE => $this->t('None'),
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_LIGHT_GRAY => $this->t('Light Gray'),
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_DARK_GRAY => $this->t('Dark Gray')
+    ];
+  }
+
 
 
 /**
