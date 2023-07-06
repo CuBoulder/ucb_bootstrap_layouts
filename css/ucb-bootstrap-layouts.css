@@ -143,21 +143,6 @@ color: var(--ucb-white);
   color: var(--ucb-white);
 }
 
-/*** exit buttons for workflow ***/
-.ui-widget.ui-dialog.ui-dialog-off-canvas .ui-dialog-titlebar button.ui-dialog-titlebar-close::before {
-  content: '\f057';
-  font-family: 'Font Awesome 5 Free';
-  font-size: 24px;
-  color: black;
-}
-
-.ui-dialog .ui-dialog-titlebar button.ui-dialog-titlebar-close::before {
-  content: '\f057';
-  font-family: 'Font Awesome 5 Free';
-  font-size: 24px;
-  color: var(--ucb-white);
-}
-
 /*** !important needed to override inline background image styles ***/
 
 .scrolling-background {
