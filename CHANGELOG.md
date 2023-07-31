@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Fix Frames
+  Fixed the frames so that the bootstrap columns work properly
+  
+  Closes #14 
+---
+
 - ### Content Frame Update
   Added option for frame color to the background options of layout builder when creating or editing a Section.
   
