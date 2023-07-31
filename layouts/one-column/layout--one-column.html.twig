@@ -23,6 +23,17 @@
   ]
 %}
 
+{%
+  set frameColor = 	'content-frame-' ~ settings.content_frame_color
+%}
+
+{%
+  set frame_classes = [
+    'ucb-content-frame',
+	frameColor
+  ]
+%}
+
 {% if (settings.background_color == 'black') or (settings.background_color == 'dark-gray') %}
 	{% set row_color_settings = "ucb-bootstrap-layout-section-dark" %}
 {% else %}
@@ -59,11 +70,9 @@
 
 {% if content %}
 	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
-		<div{{attributes.addClass(row_classes|join(' '))}}>
+		<div{{attributes.addClass(row_classes, frame_classes|join(' '))}}>
 			<div {{ region_attributes.first.addClass('column', 'column--first', 'col-12') }}>
-				<div class="ucb-content-frame content-frame-{{ settings.content_frame_color }}">
-					{{ content.first }}
-				</div>
+				{{ content.first }}
 			</div>
 		</div>
 	</div>

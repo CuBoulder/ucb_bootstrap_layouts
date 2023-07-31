@@ -130,7 +130,6 @@ color: var(--ucb-white);
 .ucb-boostrap-layout-section .column .block:first-child {
   padding-top: 1em;
   padding-bottom: 1em;
-  margin-bottom: 0;
 }
 
 /*** Content Frame ***/
