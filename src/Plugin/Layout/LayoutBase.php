@@ -149,14 +149,19 @@ abstract class LayoutBase extends LayoutDefault {
         '#default_value' => $this->configuration['column_width'],
         '#required' => TRUE,
       ];
+    }
 
+    if ($this->configuration['column_width'] == '12'){
       $form['layout']['container_width'] = [
         '#type' => 'radios',
         '#title' => $this->t('Container Width'),
         '#options' => $containerWidths,
         '#default_value' => $this->configuration['container_width'],
         '#required' => TRUE,
+        '#description' => $this->t('Choose whether hero units, slider, or video reveals display full width.'),
+
       ];
+    }
 
       $form['spacing'] = [
         '#type' => 'details',
@@ -209,8 +214,6 @@ abstract class LayoutBase extends LayoutDefault {
           [$this, 'paddingFormatValidation'],
         ],
       ];
-    }
-
 
     $form['#attached']['library'][] = 'ucb_bootstrap_layouts/layout_builder';
 
