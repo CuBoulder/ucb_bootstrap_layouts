@@ -9,21 +9,25 @@
 .js-form-item-layout-settings-layout-container-width .form-radio:checked,
 .js-form-item-layout-settings-background-overlay-color .form-radio:checked,
 .js-form-item-layout-settings-background-background-effect .form-radio:checked,
-.js-form-item-layout-settings-background-content-frame-color .form-radio:checked,
+.js-form-item-layout-settings-background-content-frame-color
+  .form-radio:checked,
 .js-form-item-layout-settings-background-background-color .form-radio:hover,
 .js-form-item-layout-settings-layout-column-width .form-radio:hover,
 .js-form-item-layout-settings-layout-container-width .form-radio:hover,
 .js-form-item-layout-settings-background-overlay-color .form-radio:hover,
 .js-form-item-layout-settings-background-background-effect .form-radio:hover,
 .js-form-item-layout-settings-background-content-frame-color .form-radio:hover,
-.js-form-item-layout-settings-background-background-color .form-radio:hover:focus,
+.js-form-item-layout-settings-background-background-color
+  .form-radio:hover:focus,
 .js-form-item-layout-settings-layout-column-width .form-radio:hover:focus,
 .js-form-item-layout-settings-layout-container-width .form-radio:hover:focus,
 .js-form-item-layout-settings-background-overlay-color .form-radio:hover:focus,
-.js-form-item-layout-settings-background-background-effect .form-radio:hover:focus,
-.js-form-item-layout-settings-background-content-frame-color .form-radio:hover:focus {
-    box-shadow: none!important;
-    -webkit-box-shadow: none!important;
+.js-form-item-layout-settings-background-background-effect
+  .form-radio:hover:focus,
+.js-form-item-layout-settings-background-content-frame-color
+  .form-radio:hover:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
 
 /*** LAYOUT STYLES ***/
@@ -33,7 +37,7 @@
 }
 
 .ucb-bootstrap-layout__background-color--gold {
-    background-color: var(--ucb-gold);
+  background-color: var(--ucb-gold);
 }
 
 .ucb-bootstrap-layout__background-color--light-gray {
@@ -53,11 +57,11 @@
 }
 
 .ucb-bootstrap-layout-section-dark {
-color: var(--ucb-white);
+  color: var(--ucb-white);
 }
 
 .ucb-bootstrap-layout__background-color--gold a {
-  color: #111111  ;
+  color: #111111;
   text-decoration: underline;
   text-decoration-color: rgba(68, 68, 68, 0.65);
 }
@@ -72,7 +76,7 @@ color: var(--ucb-white);
 }
 
 .ucb-bootstrap-layout__background-color--light-gray a {
-  color: #01579B;
+  color: #01579b;
 }
 
 .ucb-bootstrap-layout__background-color--white a:hover,
@@ -142,14 +146,29 @@ color: var(--ucb-white);
   color: var(--ucb-white);
 }
 
+/*** EDGE-TO-EDGE OPTIONS ***/
+.ucb-contained-row .container {
+  --bs-gutter-y: 0;
+  --bs-gutter-x: 0;
+}
+
+.ucb-contained-row .ucb-hero-unit-content {
+  --bs-gutter-y: 1.5rem;
+  --bs-gutter-x: 1.5rem;
+}
+
+.ucb-contained-row .ucb-hero-outer-wrapper {
+  --bs-gutter-x: 0;
+}
+
 /*** !important needed to override inline background image styles ***/
 
 .scrolling-background {
-  background-attachment: scroll!important;
+  background-attachment: scroll !important;
 }
 
 .scrolling-background {
-  background-attachment: fixed!important;
+  background-attachment: fixed !important;
 }
 
 .jarallax {
