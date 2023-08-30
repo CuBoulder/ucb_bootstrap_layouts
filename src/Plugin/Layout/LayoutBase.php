@@ -268,6 +268,13 @@ abstract class LayoutBase extends LayoutDefault {
 
       }
     }
+    else {
+      $media_image_styles = [
+        'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
+      ];
+
+      $new_styles = implode(' ', $media_image_styles);
+    }
     
 
     $this->configuration['background_color'] = $values['background']['background_color'];
