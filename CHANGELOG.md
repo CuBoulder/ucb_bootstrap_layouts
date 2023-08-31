@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update LayoutBase.php
+  Added an else statement to apply padding to section even when background images aren't used
+  
+  Closes #17 
+---
+
 - ### Issue/471
   Updated edge-to-edge option for single column layouts
   Makes hero units, video reveals, and sliders work as full width sections.
