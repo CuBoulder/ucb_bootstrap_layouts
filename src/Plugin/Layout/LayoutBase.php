@@ -58,7 +58,7 @@ abstract class LayoutBase extends LayoutDefault {
     return [
       'background_color' => UCBLayout::ROW_BACKGROUND_COLOR_NONE,
       'content_frame_color' => UCBLayout::ROW_CONTENT_FRAME_COLOR_NONE,
-      /**'container_width' => UCBLayout::ROW_CONTAINER_WIDTH_REGULAR,**/
+      'container_width' => UCBLayout::ROW_CONTAINER_WIDTH_REGULAR,
       'background_image' == NULL,
       'background_image_styles' == NULL,
       'overlay_color' => UCBLayout::ROW_OVERLAY_COLOR_NONE,
@@ -82,7 +82,7 @@ abstract class LayoutBase extends LayoutDefault {
     $overlayColorOptions = $this->getOverlayColorOptions();
     $backgroundEffectOptions = $this->getBackgroundEffectOptions();
     $columnWidths = $this->getColumnWidths();
-    /**$containerWidths = $this->getContainerWidths();**/
+    $containerWidths = $this->getContainerWidths();
     /*
     $paddingTopOptions = $this->getPaddingTopOptions();
     $paddingBottomOptions = $this->getPaddingBottomOptions();
@@ -149,6 +149,19 @@ abstract class LayoutBase extends LayoutDefault {
         '#default_value' => $this->configuration['column_width'],
         '#required' => TRUE,
       ];
+    }
+
+    if ($this->configuration['column_width'] == '12'){
+      $form['layout']['container_width'] = [
+        '#type' => 'radios',
+        '#title' => $this->t('Container Width'),
+        '#options' => $containerWidths,
+        '#default_value' => $this->configuration['container_width'],
+        '#required' => TRUE,
+        '#description' => $this->t('Choose whether hero units, slider, or video reveals display full width.'),
+
+      ];
+    }
 
       $form['spacing'] = [
         '#type' => 'details',
@@ -201,8 +214,6 @@ abstract class LayoutBase extends LayoutDefault {
           [$this, 'paddingFormatValidation'],
         ],
       ];
-    }
-
 
     $form['#attached']['library'][] = 'ucb_bootstrap_layouts/layout_builder';
 
@@ -281,7 +292,7 @@ abstract class LayoutBase extends LayoutDefault {
     /*$this->configuration['class'] = $values['extra']['class'];*/
     $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
     $this->configuration['column_width'] = $values['layout']['column_width'];
-    /**$this->configuration['container_width'] = $values['layout']['container_width'];**/
+    $this->configuration['container_width'] = $values['layout']['container_width'];
     $this->configuration['background_image_styles'] =  $new_styles;
     $this->configuration['overlay_color'] = $values['background']['overlay_color'];
     $this->configuration['background_effect'] = $values['background']['background_effect'];
@@ -406,13 +417,13 @@ abstract class LayoutBase extends LayoutDefault {
    *     The container width.
    * 
    **/
-  /**protected function getContainerWidths(): array {
+protected function getContainerWidths(): array {
     return [
       UCBLayout::ROW_CONTAINER_WIDTH_REGULAR => $this->t('Contained'),
       UCBLayout::ROW_CONTAINER_WIDTH_FLUID => $this->t('Edge-to-edge'),
     ];
   }
-  **/
+
 
   /**
    * Determine if this layout has background settings.

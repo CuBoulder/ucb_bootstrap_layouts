@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Issue/471
+  Updated edge-to-edge option for single column layouts
+  Makes hero units, video reveals, and sliders work as full width sections.
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/474
+---
+
 - ### Fix Frames
   Fixed the frames so that the bootstrap columns work properly
   

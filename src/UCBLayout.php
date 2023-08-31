@@ -57,7 +57,7 @@ final class UCBLayout {
 
   public const ROW_CONTAINER_WIDTH_FLUID = 'edge-to-edge';
 
-  public const ROW_CONTAINER_WIDTH_REGULAR = 'container';
+  public const ROW_CONTAINER_WIDTH_REGULAR = 'contained';
 
   public const ROW_OVERLAY_COLOR_NONE = 'none';
 
