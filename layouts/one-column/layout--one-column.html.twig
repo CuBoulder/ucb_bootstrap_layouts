@@ -43,8 +43,10 @@
 {% if settings.background_image_styles %}
 	{% if settings.overlay_color == 'black' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
-	{% else %}
+	{% elseif settings.overlay_color == 'white' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-light" %}
+	{% else %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-none" %}
 	{% endif %}
 {% else %}
 	{% set row_overlay_settings = "" %}
@@ -73,7 +75,7 @@ jarallax(document.querySelectorAll('.jarallax'), {speed: 0.2});
 		{% else %}
 			<div class="ucb-edge-to-edge">
 		{% endif %}
-				<div{{attributes.addClass(row_classes,frame_classes|join(''))}}>
+				<div{{attributes.addClass(row_classes,frame_classes|join(' '))}}>
 					<div {{ region_attributes.first.addClass('column', 'column--first', 'col-12') }}>
 						{{ content.first }}
 					</div>
