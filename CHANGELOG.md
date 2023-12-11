@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Fixed Frame and Overlay
+  Fixed framing for single column rows (the frame wasn't showing on single column rows) 
+  - test this by adding a content frame
+  
+  Added a new default for overlay classes. (caused css issues)
+  - This one is harder to actually see the results of because nothing should happen when you select overlays without images
+  
+  Closes #21 
+---
+
 - ### Update LayoutBase.php
   Added an else statement to apply padding to section even when background images aren't used
   

@@ -47,8 +47,10 @@
 {% if settings.background_image_styles %}
 	{% if settings.overlay_color == 'black' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
-	{% else %}
+	{% elseif settings.overlay_color == 'white' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-light" %}
+	{% else %}
+		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-none" %}
 	{% endif %}
 {% else %}
 	{% set row_overlay_settings = "" %}
