@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update ucb-bootstrap-layouts.css
+  Update for dialog box close button fix
+  New admin theme changes
+  
+  Sister PRs:
+  https://github.com/CuBoulder/tiamat-theme/pull/639
+  https://github.com/CuBoulder/tiamat10-project-template/pull/30
+  https://github.com/CuBoulder/tiamat10-profile/pull/69
+---
+
 ## [20231212] - 2023-12-12
 
 -   ### Fixed Frame and Overlay
