@@ -2,6 +2,3 @@ ucb-bootstrap-layouts:
   version: 1.0
   js:
     js/jarallax.min.js: {}
-  css:
-    theme:
-      css/ucb-bootstrap-layouts.css: {}

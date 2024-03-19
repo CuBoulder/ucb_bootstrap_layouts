@@ -55,6 +55,18 @@ final class UCBLayout {
   
   public const ROW_BACKGROUND_COLOR_GOLD = 'gold';
 
+  public const ROW_BACKGROUND_COLOR_TAN = 'tan';
+
+  public const ROW_BACKGROUND_COLOR_LIGHT_BLUE = 'light-blue';
+
+  public const ROW_BACKGROUND_COLOR_MEDIUM_BLUE = 'medium-blue';
+
+  public const ROW_BACKGROUND_COLOR_DARK_BLUE = 'dark-blue';
+
+  public const ROW_BACKGROUND_COLOR_LIGHT_GREEN = 'light-green';
+
+  public const ROW_BACKGROUND_COLOR_BRICK= 'brick';
+
   public const ROW_CONTAINER_WIDTH_FLUID = 'edge-to-edge';
 
   public const ROW_CONTAINER_WIDTH_REGULAR = 'contained';
