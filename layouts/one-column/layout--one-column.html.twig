@@ -33,12 +33,6 @@
   ]
 %}
 
-{% if (settings.background_color == 'black') or (settings.background_color == 'dark-gray') %}
-	{% set row_color_settings = "ucb-bootstrap-layout-section-dark" %}
-{% else %}
-	{% set row_color_settings = "ucb-bootstrap-layout-section-light" %}
-{% endif %}
-
 {% if settings.background_image_styles %}
 	{% if settings.overlay_color == 'black' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
@@ -68,7 +62,7 @@ jarallax(document.querySelectorAll('.jarallax'), {speed: 0.2});
 {% endif %}
 
 {% if content %}
-	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_color_settings }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
+	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
 		{% if settings.container_width == "contained" %}
 			<div class="container ucb-contained-row">
 		{% else %}

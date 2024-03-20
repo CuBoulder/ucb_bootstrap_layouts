@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Layout Builder Style and Feature Addition
+  Fixed hero and event calendar classes showing in content 
+  Fixed color layering and cascading
+  Added `None` as an option for `Block Style` background color
+  
+  Related PR: https://github.com/CuBoulder/tiamat-theme/pull/747
+  Related PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/109
+---
+
 - ### Update ucb-bootstrap-layouts.css
   Update for dialog box close button fix
   New admin theme changes
