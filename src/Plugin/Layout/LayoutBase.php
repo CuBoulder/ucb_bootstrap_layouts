@@ -346,6 +346,12 @@ abstract class LayoutBase extends LayoutDefault {
       UCBLayout::ROW_BACKGROUND_COLOR_DARK_GRAY => $this->t('Dark Gray'),
       UCBLayout::ROW_BACKGROUND_COLOR_BLACK => $this->t('Black'),
       UCBLayout::ROW_BACKGROUND_COLOR_GOLD => $this->t('Gold'),
+      UCBLayout::ROW_BACKGROUND_COLOR_TAN => $this->t('Tan'),
+      UCBLayout::ROW_BACKGROUND_COLOR_LIGHT_BLUE => $this->t('Light Blue'),
+      UCBLayout::ROW_BACKGROUND_COLOR_MEDIUM_BLUE => $this->t('Medium Blue'),
+      UCBLayout::ROW_BACKGROUND_COLOR_DARK_BLUE => $this->t('Dark Blue'),
+      UCBLayout::ROW_BACKGROUND_COLOR_LIGHT_GREEN => $this->t('Light Green'),
+      UCBLayout::ROW_BACKGROUND_COLOR_BRICK => $this->t('Brick'),
     ];
   }
 
