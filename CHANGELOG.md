@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Remove g-0
+  Remove `g-0` for zero gutter. Taken care of through css now.
+  
+  Closes #27 
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/751
+---
+
 - ### Layout Builder Style and Feature Addition
   Fixed hero and event calendar classes showing in content 
   Fixed color layering and cascading
