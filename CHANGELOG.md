@@ -9,6 +9,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### edge-to-edge update
+  Set up `edge-to-edge` as a separate layout rather than a sub-option for `one column`
+  
+  It is technically a "13 column" row for the sake of UCBLayout and LayoutBase as to differentiate form options between it and the `one column`
+  
+  Edge-to-edge does not have the normal form options all the other layouts have but instead just receives defaults for said options. These defaults are passed into the template so everything is "filled out" properly.
+  
+  Icon on column choice is the same as `One Column` because those icons are made automatically through layout builder based on number of rows in the section.
+  
+  A test of creating a current single column row with edge-to-edge option, and then updating to the newest code would be good to see how this is going to affect our current sandboxes. 
+  The site does not break but users will be unable to choose `edge-to-edge` as an option anymore in the `one column` sections. If someone edits a previous `edge-to-edge one column` the form will override to the default `100% contained width` thereby switching it away from `edge-to-edge`. This is a manual process and will not automatically switch after this update is rolled out.
+  
+  Order of section options:
+  <img width="296" alt="Screenshot 2024-04-11 at 10 26 54 AM" src="https://github.com/CuBoulder/ucb_bootstrap_layouts/assets/94021017/03f5180a-1804-468c-944c-1af438ed9f4e">
+  
+  
+  Closes #30 
+  
+---
+
 - ### Remove g-0
   Remove `g-0` for zero gutter. Taken care of through css now.
   

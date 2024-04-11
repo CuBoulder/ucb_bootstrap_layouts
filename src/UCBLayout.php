@@ -11,6 +11,8 @@ final class UCBLayout {
 
   public const ROW_WIDTH_100 = '12';
 
+  public const ROW_WIDTH_EDGE_TO_EDGE = '13';
+
   public const ROW_WIDTH_75 = '9';
 
   public const ROW_WIDTH_50 = '6';
@@ -66,10 +68,6 @@ final class UCBLayout {
   public const ROW_BACKGROUND_COLOR_LIGHT_GREEN = 'light-green';
 
   public const ROW_BACKGROUND_COLOR_BRICK= 'brick';
-
-  public const ROW_CONTAINER_WIDTH_FLUID = 'edge-to-edge';
-
-  public const ROW_CONTAINER_WIDTH_REGULAR = 'contained';
 
   public const ROW_OVERLAY_COLOR_NONE = 'none';
 

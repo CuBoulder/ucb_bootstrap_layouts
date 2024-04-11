@@ -62,3 +62,15 @@ ucb_bootstrap_layouts__four_column:
     fourth:
       label: Fourth
       
+ucb_bootstrap_layouts__edge-to-edge:
+  label: 'Edge-to-Edge'
+  path: layouts/edge-to-edge
+  template: layout--edge-to-edge
+  class: Drupal\ucb_bootstrap_layouts\Plugin\Layout\EdgeToEdgeLayout
+  category: 'Edge-to-Edge'
+  default_region: first
+  icon_map:
+    - [first]
+  regions:
+    first:
+      label: First
