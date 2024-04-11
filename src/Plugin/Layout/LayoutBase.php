@@ -235,63 +235,66 @@ abstract class LayoutBase extends LayoutDefault
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state)
   {
-    $values = $form_state->getValues();
-    $media = $values['background']['background_image'] ?? NULL;
-    $overlay_selection = $values['background']['overlay_color'];
-    $overlay_styles = "";
-    $new_styles = "";
-    $top_padding = $values['spacing']['section_padding_top'];
-    $right_padding = $values['spacing']['section_padding_right'];
-    $bottom_padding = $values['spacing']['section_padding_bottom'];
-    $left_padding = $values['spacing']['section_padding_left'];
 
-    if ($overlay_selection == "black") {
-      $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
-    } elseif ($overlay_selection == "white") {
-      $overlay_styles = "linear-gradient(rgb(200, 200, 200, 0.7), rgb(200, 200, 200, 0.7))";
-    } else {
-      $overlay_styles = "none";
-    }
+    if ($this->configuration['column_width'] != '13') {
+      $values = $form_state->getValues();
+      $media = $values['background']['background_image'] ?? NULL;
+      $overlay_selection = $values['background']['overlay_color'];
+      $overlay_styles = "";
+      $new_styles = "";
+      $top_padding = $values['spacing']['section_padding_top'];
+      $right_padding = $values['spacing']['section_padding_right'];
+      $bottom_padding = $values['spacing']['section_padding_bottom'];
+      $left_padding = $values['spacing']['section_padding_left'];
+
+      if ($overlay_selection == "black") {
+        $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
+      } elseif ($overlay_selection == "white") {
+        $overlay_styles = "linear-gradient(rgb(200, 200, 200, 0.7), rgb(200, 200, 200, 0.7))";
+      } else {
+        $overlay_styles = "none";
+      }
 
 
-    if ($media) {
-      $media_entity = Media::load($media);
-      if ($media_entity) {
-        $fid = $media_entity->getSource()->getSourceFieldValue($media_entity);
-        $file = File::load($fid);
-        $url = $file->createFileUrl();
+      if ($media) {
+        $media_entity = Media::load($media);
+        if ($media_entity) {
+          $fid = $media_entity->getSource()->getSourceFieldValue($media_entity);
+          $file = File::load($fid);
+          $url = $file->createFileUrl();
+          $media_image_styles = [
+            'background:  ' . $overlay_styles . ', url(' . $url . ');',
+            'background-position: center;',
+            'background-size: cover;',
+            'background-repeat: no-repeat;',
+            'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
+          ];
+
+          $new_styles = implode(' ', $media_image_styles);
+
+        }
+      } else {
         $media_image_styles = [
-          'background:  ' . $overlay_styles . ', url(' . $url . ');',
-          'background-position: center;',
-          'background-size: cover;',
-          'background-repeat: no-repeat;',
           'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
         ];
 
         $new_styles = implode(' ', $media_image_styles);
-
       }
-    } else {
-      $media_image_styles = [
-        'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
-      ];
 
-      $new_styles = implode(' ', $media_image_styles);
+      $this->configuration['background_color'] = $values['background']['background_color'];
+      /*$this->configuration['class'] = $values['extra']['class'];*/
+      $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
+      $this->configuration['column_width'] = $values['layout']['column_width'];
+      $this->configuration['background_image_styles'] = $new_styles;
+      $this->configuration['overlay_color'] = $values['background']['overlay_color'];
+      $this->configuration['background_effect'] = $values['background']['background_effect'];
+      $this->configuration['content_frame_color'] = $values['background']['content_frame_color'];
+      $this->configuration['section_padding_top'] = $values['spacing']['section_padding_top'];
+      $this->configuration['section_padding_right'] = $values['spacing']['section_padding_right'];
+      $this->configuration['section_padding_bottom'] = $values['spacing']['section_padding_bottom'];
+      $this->configuration['section_padding_left'] = $values['spacing']['section_padding_left'];
     }
 
-
-    $this->configuration['background_color'] = $values['background']['background_color'];
-    /*$this->configuration['class'] = $values['extra']['class'];*/
-    $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
-    $this->configuration['column_width'] = $values['layout']['column_width'];
-    $this->configuration['background_image_styles'] = $new_styles;
-    $this->configuration['overlay_color'] = $values['background']['overlay_color'];
-    $this->configuration['background_effect'] = $values['background']['background_effect'];
-    $this->configuration['content_frame_color'] = $values['background']['content_frame_color'];
-    $this->configuration['section_padding_top'] = $values['spacing']['section_padding_top'];
-    $this->configuration['section_padding_right'] = $values['spacing']['section_padding_right'];
-    $this->configuration['section_padding_bottom'] = $values['spacing']['section_padding_bottom'];
-    $this->configuration['section_padding_left'] = $values['spacing']['section_padding_left'];
   }
 
   /**
