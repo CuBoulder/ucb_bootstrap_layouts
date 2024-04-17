@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Light overlay update
+  Modifies the Light Overlay on section background images to be more white than gray so particularly light background images are no longer darkened by the overlay due
+  
+  Resolves #32 
+---
+
 - ### edge-to-edge update
   Set up `edge-to-edge` as a separate layout rather than a sub-option for `one column`
   
