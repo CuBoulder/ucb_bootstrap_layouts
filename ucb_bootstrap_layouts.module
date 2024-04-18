@@ -2,6 +2,9 @@
 
 declare(strict_types = 1);
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
 /**
  * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
  */
@@ -11,5 +14,20 @@ function ucb_bootstrap_layouts_plugin_filter_layout__layout_builder_alter(array 
     if (!preg_match('/^ucb_bootstrap_layouts__/', $id)) {
       unset($definitions[$id]);
     }
+  }
+}
+
+// Remove all contextual links from everything but Layout Builder.
+function ucb_bootstrap_layouts_page_attachments(array &$page) {
+  $routeName = \Drupal::routeMatch()->getRouteName();
+  if (!in_array($routeName, ['layout_builder.overrides.node.view', 'layout_builder.defaults.node.view'])) {
+    $page['#attached']['library'] = array_diff($page['#attached']['library'], ['contextual/drupal.contextual-links', 'contextual/drupal.contextual-toolbar']);
+  }
+}
+
+function ucb_bootstrap_layouts_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  $routeName = \Drupal::routeMatch()->getRouteName();
+  if (!in_array($routeName, ['layout_builder.overrides.node.view', 'layout_builder.defaults.node.view'])) {
+    unset($build['#contextual_links']);
   }
 }
