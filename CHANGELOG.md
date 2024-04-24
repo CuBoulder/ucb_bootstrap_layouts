@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Frame syntax fix
+  Spaces needed to be added to these two rows because they were breaking the styles of the section.
+---
+
 - ### Update ucb_bootstrap_layouts.module
   Hooks to remove contextual links everywhere but the layout builder pages.
   
