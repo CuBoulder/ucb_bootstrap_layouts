@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update ucb_bootstrap_layouts.module
+  Hooks to remove contextual links everywhere but the layout builder pages.
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/870
+---
+
 - ### Light overlay update
   Modifies the Light Overlay on section background images to be more white than gray so particularly light background images are no longer darkened by the overlay due
   
