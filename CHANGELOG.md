@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update layout--two-column.html.twig
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/898
+  Sister PR: https://github.com/CuBoulder/tiamat10-profile/pull/119
+  Sister PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/135
+  
+  Updated two column layout to be flex-grow-1 for each column and to check if the column is empty (mainly for the sake of empty menus) for rendering purposes.
+  This is for the new default layout of the basic page.
+---
+
 - ### Frame syntax fix
   Spaces needed to be added to these two rows because they were breaking the styles of the section.
 ---
