@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - ### Update layout--two-column.html.twig
+  Added trim fix for images and iframes.
+  
+  If there are other tags that you can think of that would be stripped out despite being real content let me know.
+  
+  Resolves #39 
+---
+
+- ### Update layout--two-column.html.twig
   Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/898
   Sister PR: https://github.com/CuBoulder/tiamat10-profile/pull/119
   Sister PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/135
