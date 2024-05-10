@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update layout--edge-to-edge.html.twig
+  Added the missing `g-0` class needed for edge to edge with 0 horizontal scroll
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/951
+---
+
 - ### Update layout--two-column.html.twig
   Added trim fix for images and iframes.
   
