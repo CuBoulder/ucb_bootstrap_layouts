@@ -69,7 +69,7 @@
 
 {% if content %}
 	<div class="ucb-boostrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
-		<div class="container">
+		<div class="container ucb-contained-row">
 			<div{{attributes.addClass(row_classes, frame_classes|join(' '))}}>
 				{% if content.first %}
 					<div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12') }}>
