@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Fixed missing class
+  Added missing contained row class to layouts
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/1016
+---
+
 ## [20240513] - 2024-05-13
 
 -   ### Update layout--edge-to-edge.html.twig
