@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Fixes some blocks having white background with white text in Layout Builder
+  Resolves CuBoulder/ucb_bootstrap_layouts#45
+---
+
 - ### Fixed missing class
   Added missing contained row class to layouts
   

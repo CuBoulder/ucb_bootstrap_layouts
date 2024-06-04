@@ -2,6 +2,10 @@
   Styles for the layout builder bootstrap layouts
 */
 
+.ucb-boostrap-layout-section .layout-builder-block {
+  background-color: transparent;
+}
+
 /*** ADMIN CONFIGURATION BAR STYLES ***/
 
 .js-form-item-layout-settings-background-background-color .form-radio:checked,
