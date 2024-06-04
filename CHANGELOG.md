@@ -9,11 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- ### Fixed missing class
-  Added missing contained row class to layouts
-  
-  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/1016
----
+## [20240604] - 2024-06-04
+
+-   ### Fixed missing class
+
+    Added missing contained row class to layouts
+
+    Sister PR: <https://github.com/CuBoulder/tiamat-theme/pull/1016>
+
+* * *
 
 ## [20240513] - 2024-05-13
 
@@ -178,7 +182,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * * *
 
-[Unreleased]: https://github.com/CuBoulder/ucb_bootstrap_layouts/compare/20240513...HEAD
+[Unreleased]: https://github.com/CuBoulder/ucb_bootstrap_layouts/compare/20240604...HEAD
+
+[20240604]: https://github.com/CuBoulder/ucb_bootstrap_layouts/compare/20240513...20240604
 
 [20240513]: https://github.com/CuBoulder/ucb_bootstrap_layouts/compare/20231212...20240513
 
