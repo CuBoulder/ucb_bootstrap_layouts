@@ -360,8 +360,10 @@ abstract class LayoutBase extends LayoutDefault
   {
     return [
       UCBLayout::ROW_CONTENT_FRAME_COLOR_NONE => $this->t('None'),
-      UCBLayout::ROW_CONTENT_FRAME_COLOR_LIGHT_GRAY => $this->t('Light Gray'),
-      UCBLayout::ROW_CONTENT_FRAME_COLOR_DARK_GRAY => $this->t('Dark Gray')
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_LIGHT_GRAY => $this->t('Semitransparent White'),
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_DARK_GRAY => $this->t('Semitransparent Black'),
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_WHITE => $this->t('White'),
+      UCBLayout::ROW_CONTENT_FRAME_COLOR_BlACK => $this->t('Black'),
     ];
   }
 
