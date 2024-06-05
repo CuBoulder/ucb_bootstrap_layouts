@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### New frame options
+  Added solid white and black options to the frame choice. Renamed the select for light and dark gray to be semitransparent white and black. The variable options are still light and dark gray for purposes of migration.
+  
+  - `theme` => https://github.com/CuBoulder/tiamat-theme/pull/1037
+  - `bootstrap_layouts` => https://github.com/CuBoulder/ucb_bootstrap_layouts/pull/47
+  
+  Resolves #34  
+---
+
 - ### Fixes some blocks having white background with white text in Layout Builder
   Resolves CuBoulder/ucb_bootstrap_layouts#45
 ---

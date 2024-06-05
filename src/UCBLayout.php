@@ -86,4 +86,8 @@ final class UCBLayout {
   public const ROW_CONTENT_FRAME_COLOR_LIGHT_GRAY = 'light-gray';
 
   public const ROW_CONTENT_FRAME_COLOR_DARK_GRAY = 'dark-gray';
+
+  public const ROW_CONTENT_FRAME_COLOR_WHITE = 'white';
+  
+  public const ROW_CONTENT_FRAME_COLOR_BlACK = 'black';
 }
