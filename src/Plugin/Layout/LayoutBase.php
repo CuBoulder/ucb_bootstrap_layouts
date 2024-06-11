@@ -243,9 +243,9 @@ abstract class LayoutBase extends LayoutDefault
       $overlay_styles = "";
       $new_styles = "";
       $top_padding = $values['spacing']['section_padding_top'];
-      $right_padding = $values['spacing']['section_padding_right'];
+      $right_padding = 0;
       $bottom_padding = $values['spacing']['section_padding_bottom'];
-      $left_padding = $values['spacing']['section_padding_left'];
+      $left_padding = 0;
 
       if ($overlay_selection == "black") {
         $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
