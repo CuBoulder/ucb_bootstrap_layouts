@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Class fixes and additions
+  Fixed a name error from `boostrap` -> `bootstrap`
+  Added new unstyled/styled class names for frames
+  Moved the left and right padding options on spacing to be on the frame so that alignment works the way Kevin/Wendy have requested.
+  
+  - `theme` => https://github.com/CuBoulder/tiamat-theme/pull/1055
+  - `bootstrap_layouts` => https://github.com/CuBoulder/ucb_bootstrap_layouts/pull/48
+---
+
 - ### New frame options
   Added solid white and black options to the frame choice. Renamed the select for light and dark gray to be semitransparent white and black. The variable options are still light and dark gray for purposes of migration.
   
