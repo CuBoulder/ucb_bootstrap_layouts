@@ -79,7 +79,7 @@ abstract class LayoutBase extends LayoutDefault
       'section_mobile_padding_right' => "0px",
       'section_mobile_padding_bottom' => "0px",
       'section_mobile_padding_left' => "0px",
-      'sectionID' => rand(),
+      'sectionID' => uniqid(),
     ];
   }
 
@@ -209,7 +209,7 @@ abstract class LayoutBase extends LayoutDefault
         '#type' => 'textfield',
         '#title' => $this->t('Left Section Padding'),
         '#default_value' => $this->configuration['section_padding_left'],
-        '#required' => false,
+        '#required' => TRUE,
         '#description' => $this->t('Padding required with either px or %.'),
         '#element_validate' => [
           [$this, 'paddingFormatValidation'],
@@ -260,7 +260,7 @@ abstract class LayoutBase extends LayoutDefault
         '#type' => 'textfield',
         '#title' => $this->t('Left Section Padding'),
         '#default_value' => $this->configuration['section_tablet_padding_left'],
-        '#required' => false,
+        '#required' => TRUE,
         '#description' => $this->t('Padding required with either px or %.'),
         '#element_validate' => [
           [$this, 'paddingFormatValidation'],
@@ -311,7 +311,7 @@ abstract class LayoutBase extends LayoutDefault
         '#type' => 'textfield',
         '#title' => $this->t('Left Section Padding'),
         '#default_value' => $this->configuration['section_mobile_padding_left'],
-        '#required' => false,
+        '#required' => TRUE,
         '#description' => $this->t('Padding required with either px or %.'),
         '#element_validate' => [
           [$this, 'paddingFormatValidation'],
