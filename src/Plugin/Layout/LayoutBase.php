@@ -71,6 +71,15 @@ abstract class LayoutBase extends LayoutDefault
       'section_padding_right' => "0px",
       'section_padding_bottom' => "0px",
       'section_padding_left' => "0px",
+      'section_tablet_padding_top' => "0px",
+      'section_tablet_padding_right' => "0px",
+      'section_tablet_padding_bottom' => "0px",
+      'section_tablet_padding_left' => "0px",
+      'section_mobile_padding_top' => "0px",
+      'section_mobile_padding_right' => "0px",
+      'section_mobile_padding_bottom' => "0px",
+      'section_mobile_padding_left' => "0px",
+      'sectionID' => uniqid(),
     ];
   }
 
@@ -200,7 +209,109 @@ abstract class LayoutBase extends LayoutDefault
         '#type' => 'textfield',
         '#title' => $this->t('Left Section Padding'),
         '#default_value' => $this->configuration['section_padding_left'],
-        '#required' => false,
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['tabletSpacing'] = [
+        '#type' => 'details',
+        '#title' => $this->t('Tablet Spacing'),
+        '#open' => FALSE,
+        '#weight' => 40,
+      ];
+
+      $form['spacing']['tabletSpacing']['section_tablet_padding_top'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Top Section Padding'),
+        '#default_value' => $this->configuration['section_tablet_padding_top'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['tabletSpacing']['section_tablet_padding_right'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Right Section Padding'),
+        '#default_value' => $this->configuration['section_tablet_padding_right'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['tabletSpacing']['section_tablet_padding_bottom'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Bottom Section Padding'),
+        '#default_value' => $this->configuration['section_tablet_padding_bottom'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['tabletSpacing']['section_tablet_padding_left'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Left Section Padding'),
+        '#default_value' => $this->configuration['section_tablet_padding_left'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['mobileSpacing'] = [
+        '#type' => 'details',
+        '#title' => $this->t('Mobile Spacing'),
+        '#open' => FALSE,
+        '#weight' => 40,
+      ];
+
+      $form['spacing']['mobileSpacing']['section_mobile_padding_top'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Top Section Padding'),
+        '#default_value' => $this->configuration['section_mobile_padding_top'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['mobileSpacing']['section_mobile_padding_right'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Right Section Padding'),
+        '#default_value' => $this->configuration['section_mobile_padding_right'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['mobileSpacing']['section_mobile_padding_bottom'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Bottom Section Padding'),
+        '#default_value' => $this->configuration['section_mobile_padding_bottom'],
+        '#required' => TRUE,
+        '#description' => $this->t('Padding required with either px or %.'),
+        '#element_validate' => [
+          [$this, 'paddingFormatValidation'],
+        ],
+      ];
+
+      $form['spacing']['mobileSpacing']['section_mobile_padding_left'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Left Section Padding'),
+        '#default_value' => $this->configuration['section_mobile_padding_left'],
+        '#required' => TRUE,
         '#description' => $this->t('Padding required with either px or %.'),
         '#element_validate' => [
           [$this, 'paddingFormatValidation'],
@@ -242,10 +353,6 @@ abstract class LayoutBase extends LayoutDefault
       $overlay_selection = $values['background']['overlay_color'];
       $overlay_styles = "";
       $new_styles = "";
-      $top_padding = $values['spacing']['section_padding_top'];
-      $right_padding = 0;
-      $bottom_padding = $values['spacing']['section_padding_bottom'];
-      $left_padding = 0;
 
       if ($overlay_selection == "black") {
         $overlay_styles = "linear-gradient(rgb(20, 20, 20, 0.5), rgb(20, 20, 20, 0.5))";
@@ -267,7 +374,6 @@ abstract class LayoutBase extends LayoutDefault
             'background-position: center;',
             'background-size: cover;',
             'background-repeat: no-repeat;',
-            'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
           ];
 
           $new_styles = implode(' ', $media_image_styles);
@@ -275,7 +381,6 @@ abstract class LayoutBase extends LayoutDefault
         }
       } else {
         $media_image_styles = [
-          'padding:' . $top_padding . ' ' . $right_padding . ' ' . $bottom_padding . ' ' . $left_padding,
         ];
 
         $new_styles = implode(' ', $media_image_styles);
@@ -293,6 +398,14 @@ abstract class LayoutBase extends LayoutDefault
       $this->configuration['section_padding_right'] = $values['spacing']['section_padding_right'];
       $this->configuration['section_padding_bottom'] = $values['spacing']['section_padding_bottom'];
       $this->configuration['section_padding_left'] = $values['spacing']['section_padding_left'];
+      $this->configuration['section_tablet_padding_top'] = $values['spacing']['tabletSpacing']['section_tablet_padding_top'];
+      $this->configuration['section_tablet_padding_right'] = $values['spacing']['tabletSpacing']['section_tablet_padding_right'];
+      $this->configuration['section_tablet_padding_bottom'] = $values['spacing']['tabletSpacing']['section_tablet_padding_bottom'];
+      $this->configuration['section_tablet_padding_left'] = $values['spacing']['tabletSpacing']['section_tablet_padding_left'];
+      $this->configuration['section_mobile_padding_top'] = $values['spacing']['mobileSpacing']['section_mobile_padding_top'];
+      $this->configuration['section_mobile_padding_right'] = $values['spacing']['mobileSpacing']['section_mobile_padding_right'];
+      $this->configuration['section_mobile_padding_bottom'] = $values['spacing']['mobileSpacing']['section_mobile_padding_bottom'];
+      $this->configuration['section_mobile_padding_left'] = $values['spacing']['mobileSpacing']['section_mobile_padding_left'];
     }
 
   }

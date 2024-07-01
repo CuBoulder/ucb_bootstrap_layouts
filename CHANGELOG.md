@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Added tablet and mobile padding
+  Added tablet and mobile spacing for section layouts. This requires inline css to be applied at the template level to allow for proper breakpoints. Tablet and mobile are both under the "Spacing" dropdown but also contained within their own drop downs to keep the UI clean. Unique ids are being generated at the module level for the layout builder sections so that styles can be applied properly. IDs can't be grabbed via twig at the layout builder level for unknowable reasons.
+  
+  Resolves #50 
+---
+
 ## [20240612] - 2024-06-12
 
 -   ### Class fixes and additions
