@@ -16,6 +16,8 @@
 
 {{ attach_library('ucb_bootstrap_layouts/ucb-bootstrap-layouts') }}
 
+{% set sectionID = settings.sectionID %}
+
 {% set column_widths = settings.column_width|split('-') %}
 
 {%
@@ -74,8 +76,46 @@
 	</script>
 {% endif %}
 
+<style>
+@media (min-width: 576px) {
+		.ucb-bootstrap-layout-section.section-{{ sectionID }} {
+		padding-top: {{ settings.section_mobile_padding_top }};
+		padding-bottom: {{settings.section_mobile_padding_bottom }};
+	}
+
+	.section-{{ sectionID }} .ucb-content-frame {
+		padding-left: {{ settings.section_mobile_padding_left }};
+		padding-right: {{settings.section_mobile_padding_right }};
+	}
+}
+
+@media (min-width: 768px) {
+		.ucb-bootstrap-layout-section.section-{{ sectionID }} {
+		padding-top: {{ settings.section_tablet_padding_top }};
+		padding-bottom: {{settings.section_tablet_padding_bottom }};
+	}
+
+	.section-{{ sectionID }} .ucb-content-frame {
+		padding-left: {{ settings.section_tablet_padding_left }};
+		padding-right: {{settings.section_tablet_padding_right }};
+	}
+}
+
+@media (min-width: 992px) {
+	.ucb-bootstrap-layout-section.section-{{ sectionID }} {
+		padding-top: {{ settings.section_padding_top }};
+		padding-bottom: {{settings.section_padding_bottom }};
+	}
+
+	.section-{{ sectionID }} .ucb-content-frame {
+		padding-left: {{ settings.section_padding_left }};
+		padding-right: {{settings.section_padding_right }};
+	}
+}
+</style>
+
 {% if content %}
-	<div class="ucb-bootstrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
+	<div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
 		<div class="container ucb-contained-row">
 			<div {{attributes.addClass(row_classes, frame_classes|join(' '))}} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
 				{% if (content.first) and (content.first|render|striptags('<img><iframe>')|trim != "")%}

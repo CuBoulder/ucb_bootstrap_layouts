@@ -14,6 +14,8 @@
 
 {{ attach_library('ucb_bootstrap_layouts/ucb-bootstrap-layouts') }}
 
+{% set sectionID = settings.sectionID %}
+
 {%
   set row_classes = [
     'row',
@@ -63,7 +65,7 @@ jarallax(document.querySelectorAll('.jarallax'), {speed: 0.2});
 {% endif %}
 
 {% if content %}
-	<div class="ucb-bootstrap-layout-section ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
+	<div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
 		<div class="ucb-edge-to-edge">
 			<div{{attributes.addClass(row_classes, frame_classes|join(' '))}}>
 				<div {{ region_attributes.first.addClass('column', 'column--first', 'col-12') }}>
