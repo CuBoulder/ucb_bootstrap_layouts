@@ -11,7 +11,6 @@ use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 
 
-
 /**
  * Provides a layout base for custom layouts.
  */
@@ -367,11 +366,32 @@ abstract class LayoutBase extends LayoutDefault
         $media_entity = Media::load($media);
         if ($media_entity) {
           $fid = $media_entity->getSource()->getSourceFieldValue($media_entity);
-          $file = File::load($fid);
+          $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
           $url = $file->createFileUrl();
+
+
+          $crop = \Drupal::service('focal_point.manager')->getCropEntity($file, 'focal_point');
+          if ($crop) {
+            // Get the x and y position from the crop.
+            $fp_abs = $crop->position();
+            $x = $fp_abs['x'];
+            $y = $fp_abs['y'];
+
+            // Get the original width and height from the image.
+            $image_factory = \Drupal::service('image.factory');
+            $image = $image_factory->get($file->getFileUri());
+            $width = $image->getWidth();
+            $height = $image->getHeight();
+
+            // Convert the absolute x and y positions to relative values.
+            $fp_rel = \Drupal::service('focal_point.manager')->absoluteToRelative($x, $y, $width, $height);
+            $position_vars =  $fp_rel['x'] . '% ' . $fp_rel['y'] . '%;';
+          }
+
+
           $media_image_styles = [
             'background:  ' . $overlay_styles . ', url(' . $url . ');',
-            'background-position: center;',
+            'background-position: ' . $position_vars . ';',
             'background-size: cover;',
             'background-repeat: no-repeat;',
           ];
