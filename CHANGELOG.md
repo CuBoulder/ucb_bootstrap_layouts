@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Equal Column Height
+  Added a form option on sections for equal column height. This option only shows up for 2, 3, and 4 column options. All blocks within the column will be made equal height flex items.
+  
+  In Layout Builder the "Add Block" button is unfortunately a flex item as well and so the preview differs slightly with the saved layout.
+  
+  Closes #54 
+---
+
 - ### Update LayoutBase.php
   Grab focal point positioning for background images and apply it so that tablet and mobile views display better.
   

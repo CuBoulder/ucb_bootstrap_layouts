@@ -55,3 +55,8 @@
   border-top: solid 2px currentColor;
   transform: translate(-50%, 50%) rotate(45deg);
 }
+
+.layout-builder__add-block {
+  width: 100%;
+  align-content: flex-end;
+}

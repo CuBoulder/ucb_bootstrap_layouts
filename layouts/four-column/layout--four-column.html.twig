@@ -46,6 +46,12 @@
   ]
 %}
 
+{% if settings.column_equal_height == '1' %}
+  {% set columnHeight = 'd-flex flex-wrap' %}
+{% else %}
+  {% set columnHeight = '' %}
+{% endif %}
+
 {% if settings.background_image_styles %}
 	{% if settings.overlay_color == 'black' %}
 		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
@@ -123,19 +129,19 @@
 				{% endif %}
 
 				{% if content.second %}
-					<div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-md-6 col-12') }}>
+					<div {{ region_attributes.second.addClass('column', columnHeight, 'col-lg-' ~ column_widths.1, 'column--second', 'col-md-6 col-12') }}>
 						{{ content.second }}
 					</div>
 				{% endif %}
 
 				{% if content.third %}
-					<div {{ region_attributes.third.addClass('column', 'col-lg-' ~ column_widths.2, 'column--third', 'col-md-6 col-12') }}>
+					<div {{ region_attributes.third.addClass('column', columnHeight, 'col-lg-' ~ column_widths.2, 'column--third', 'col-md-6 col-12') }}>
 						{{ content.third }}
 					</div>
 				{% endif %}
 
 				{% if content.fourth %}
-					<div {{ region_attributes.fourth.addClass('column', 'col-lg-' ~ column_widths.3, 'column--fourth', 'col-md-6 col-12') }}>
+					<div {{ region_attributes.fourth.addClass('column', columnHeight, 'col-lg-' ~ column_widths.3, 'column--fourth', 'col-md-6 col-12') }}>
 						{{ content.fourth }}
 					</div>
 				{% endif %}
