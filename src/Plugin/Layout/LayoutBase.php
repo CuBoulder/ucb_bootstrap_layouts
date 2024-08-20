@@ -66,6 +66,7 @@ abstract class LayoutBase extends LayoutDefault
       'background_effect' => UCBLayout::ROW_BACKGROUND_EFFECT_SCROLL,
       'class' => NULL,
       'column_width' => $this->getDefaultColumnWidth(),
+      'column_equal_height' => 0,
       'section_padding_top' => "0px",
       'section_padding_right' => "0px",
       'section_padding_bottom' => "0px",
@@ -161,6 +162,17 @@ abstract class LayoutBase extends LayoutDefault
           '#default_value' => $this->configuration['column_width'],
           '#required' => TRUE,
         ];
+
+        
+        if ($this->configuration['column_width'] != '12') {
+          $form['layout']['column_equal_height'] = [
+            '#type' => 'checkbox',
+            '#title' => $this->t('Equal Height'),
+            '#default_value' => $this->configuration['column_equal_height'],
+            '#description' => $this->t('Selecting this option will make all columns in this section have equal height.'),
+            '#required' => FALSE,
+          ];
+        }
       }
 
       $form['spacing'] = [
@@ -410,6 +422,7 @@ abstract class LayoutBase extends LayoutDefault
       /*$this->configuration['class'] = $values['extra']['class'];*/
       $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
       $this->configuration['column_width'] = $values['layout']['column_width'];
+      $this->configuration['column_equal_height'] = $values['layout']['column_equal_height'];
       $this->configuration['background_image_styles'] = $new_styles;
       $this->configuration['overlay_color'] = $values['background']['overlay_color'];
       $this->configuration['background_effect'] = $values['background']['background_effect'];

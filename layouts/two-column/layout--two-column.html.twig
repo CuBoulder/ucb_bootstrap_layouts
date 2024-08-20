@@ -38,6 +38,12 @@
   {% set frameStyle = 'content-frame-styled' %}
 {% endif %}
 
+{% if settings.column_equal_height == '1' %}
+  {% set columnHeight = 'd-flex flex-wrap' %}
+{% else %}
+  {% set columnHeight = '' %}
+{% endif %}
+
 {%
   set frame_classes = [
     'ucb-content-frame',
@@ -117,12 +123,12 @@
 		<div class="container ucb-contained-row">
 			<div {{attributes.addClass(row_classes, frame_classes|join(' '))}} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
 				{% if (content.first) and (content.first|render|striptags('<img><iframe>')|trim != "")%}
-					<div {{ region_attributes.first.addClass('column', 'col-lg-' ~ column_widths.0, 'column--first', 'col-12', 'flex-grow-1') }}>
+					<div {{ region_attributes.first.addClass('column', columnHeight, 'col-lg-' ~ column_widths.0, 'column--first', 'col-12', 'flex-grow-1') }}>
 						{{ content.first }}
 					</div>
 				{% endif %}
 				{% if (content.second) and (content.second|render|striptags('<img><iframe>')|trim != "") %}
-					<div {{ region_attributes.second.addClass('column', 'col-lg-' ~ column_widths.1, 'column--second', 'col-12', 'flex-grow-1') }}>
+					<div {{ region_attributes.second.addClass('column', columnHeight, 'col-lg-' ~ column_widths.1, 'column--second', 'col-12', 'flex-grow-1') }}>
 						{{ content.second }}
 					</div>
 				{% endif %}
