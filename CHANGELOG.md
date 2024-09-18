@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update LayoutBase.php
+  Update section background to use specific style (section_background)
+  New image style scales width to 1920, but does not crop the height at all.
+  
+  Because the section background focal point information is % relative this change does not affect or break the previous work done to apply focal positioning of the image.
+  
+  Note:
+  If you have a section background already made for a section you will need to first clear caches, then save your section's configuration again to populate the new image style URL. 
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/173
+---
+
 - ### Equal Column Height
   Added a form option on sections for equal column height. This option only shows up for 2, 3, and 4 column options. All blocks within the column will be made equal height flex items.
   

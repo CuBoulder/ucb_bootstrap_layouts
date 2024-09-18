@@ -8,6 +8,7 @@ use Drupal\ucb_bootstrap_layouts\UCBLayout;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Layout\LayoutDefault;
 use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\file\Entity\File;
 
 
@@ -379,7 +380,8 @@ abstract class LayoutBase extends LayoutDefault
         if ($media_entity) {
           $fid = $media_entity->getSource()->getSourceFieldValue($media_entity);
           $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
-          $url = $file->createFileUrl();
+          $path = $file->getFileUri();
+          $url = ImageStyle::load('section_background')->buildUrl($path);
 
 
           $crop = \Drupal::service('focal_point.manager')->getCropEntity($file, 'focal_point');
