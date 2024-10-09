@@ -127,7 +127,7 @@
 						{{ content.first }}
 					</div>
 				{% endif %}
-				{% if (content.second) and (content.second|render|striptags('<img><iframe>')|trim != "") %}
+				{% if (content.second) and (content.second|render|striptags('<img><iframe><slate-form>')|trim != "") %}
 					<div {{ region_attributes.second.addClass('column', columnHeight, 'col-lg-' ~ column_widths.1, 'column--second', 'col-12', 'flex-grow-1') }}>
 						{{ content.second }}
 					</div>

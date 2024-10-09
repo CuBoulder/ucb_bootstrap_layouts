@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update layout--two-column.html.twig
+  Add `<slate-form>` to the striptags so that forms in the second column aren't removed in the check for content.
+  
+  Test by adding a slate form into the second column of a section. The section should have no other content including a title for the slate form block. The slate form should appear as expected.
+  
+  Resolves https://github.com/CuBoulder/tiamat-theme/issues/1363
+---
+
 - ### Create developer-sandbox-ci.yml
   new ci workflow
 ---
