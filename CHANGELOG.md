@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### two column layout striptag update
+  Re-adding the missing `<slate-form>` check that is necessary for the slate forms to load if they are the only content in the first column.
+  
+  Resolves #61 
+---
+
 - ### Updates linter workflow
   Updates the linter workflow to use the new parent workflow in action-collection.
   

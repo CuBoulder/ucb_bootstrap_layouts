@@ -122,7 +122,7 @@
 	<div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
 		<div class="container ucb-contained-row">
 			<div {{attributes.addClass(row_classes, frame_classes|join(' '))}} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
-				{% if (content.first) and (content.first|render|striptags('<img><iframe>')|trim != "")%}
+				{% if (content.first) and (content.first|render|striptags('<img><iframe><slate-form>')|trim != "")%}
 					<div {{ region_attributes.first.addClass('column', columnHeight, 'col-lg-' ~ column_widths.0, 'column--first', 'col-12', 'flex-grow-1') }}>
 						{{ content.first }}
 					</div>
