@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a one-column layout.
+ * Default theme implementation to display an edge-to-edge layout.
  *
  * Available variables:
  * - content: The content for this layout.
@@ -15,63 +15,51 @@
 {{ attach_library('ucb_bootstrap_layouts/ucb-bootstrap-layouts') }}
 
 {% set sectionID = settings.sectionID %}
+{% set row_classes = ['row', 'ucb-bootstrap-layout__row', 'ucb-bootstrap-layout__row--one-column', 'g-0'] %}
+{% set frameColor = 'content-frame-' ~ settings.content_frame_color %}
+{% set frameStyle = settings.content_frame_color == 'none' ? 'content-frame-unstyled' : 'content-frame-styled' %}
+{% set frame_classes = ['ucb-content-frame', frameColor, frameStyle] %}
+{% set regions = ['first'] %}
 
-{%
-  set row_classes = [
-    'row',
-    'ucb-bootstrap-layout__row',
-    'ucb-bootstrap-layout__row--one-column',
-		'g-0'
-  ]
-%}
+<style>
+  .ucb-bootstrap-layout-section.section-{{sectionID}}{
+    padding-top: {{settings.section_mobile_padding_top}}
+    ;
+    padding-bottom: {{settings.section_mobile_padding_bottom}}
+    ;
+  }
 
-{%
-  set frameColor = 	'content-frame-' ~ settings.content_frame_color
-%}
+  @media(min-width: 768px) {
+    .ucb-bootstrap-layout-section.section-{{sectionID}}{
+      padding-top: {{settings.section_tablet_padding_top}}
+      ;
+      padding-bottom: {{settings.section_tablet_padding_bottom}}
+      ;
+    }
+  }
 
-{%
-  set frame_classes = [
-    'ucb-content-frame',
-	frameColor
-  ]
-%}
-
-{% if settings.background_image_styles %}
-	{% if settings.overlay_color == 'black' %}
-		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-dark" %}
-	{% elseif settings.overlay_color == 'white' %}
-		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-light" %}
-	{% else %}
-		{% set row_overlay_settings = "ucb-bootstrap-layout-section-overlay-none" %}
-	{% endif %}
-{% else %}
-	{% set row_overlay_settings = "" %}
-{% endif %}
-
-{% if settings.background_effect == "fixed" %}
-	{% set row_background_effect = "fixed-background" %}
-{% elseif settings.background_effect == "parallax" %}
-	{% set row_background_effect = "jarallax" %}
-{% else %}
-	{% set row_background_effect = "scrolling-background" %}
-{% endif %}
-
-{% if settings.background_effect == "parallax" %}
-	<script>
-		window.onload = function () {
-jarallax(document.querySelectorAll('.jarallax'), {speed: 0.2});
-};
-	</script>
-{% endif %}
+  @media(min-width: 992px) {
+    .ucb-bootstrap-layout-section.section-{{sectionID}}{
+      padding-top: {{settings.section_padding_top}}
+      ;
+      padding-bottom: {{settings.section_padding_bottom}}
+      ;
+    }
+  }
+</style>
 
 {% if content %}
-	<div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
-		<div class="ucb-edge-to-edge">
-			<div{{attributes.addClass(row_classes, frame_classes|join(' '))}}>
-				<div {{ region_attributes.first.addClass('column', 'column--first', 'col-12') }}>
-					{{ content.first }}
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
+    <div class="ucb-edge-to-edge">
+      <div {{ attributes.addClass(row_classes, frame_classes|join(' ')) }} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
+        {% for region in regions %}
+          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form>')|trim != '' %}
+            <div {{ region_attributes[region].addClass('column', 'column--' ~ region, 'col-12', 'main-column') }}>
+              {{ content[region] }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 {% endif %}

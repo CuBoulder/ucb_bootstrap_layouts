@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Column Refactor + Jumpmenu update
+  Big refactors to how columns are built to be more dynamic rather than prewritten divs per column. This decision was made to cleanup the code and to add in information for column eminence. Main and auxiliary columns need to be labeled as such for jump navs to render properly.
+  
+  The column eminence mainly affects the two and three column layouts as they can have varying sizes based on user choice. Equal width columns (6-6 and 4-4-4) are treated all as "main"
+  
+  When testing please test all the layout options for columns in the layout builder.
+  I don't think I missed any of the layout options in my refactor but double checks would be helpful.
+  
+  Sister PR:  https://github.com/CuBoulder/ucb_ckeditor_plugins/pull/100
+  
+  Resolves #63 
+---
+
 - ### two column layout striptag update
   Re-adding the missing `<slate-form>` check that is necessary for the slate forms to load if they are the only content in the first column.
   
