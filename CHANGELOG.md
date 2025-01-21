@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update layout--two-column.html.twig
+  The `flex-grow-1` was dropped from the rework of the layouts. 
+  This adds that back for the two column layout which makes it so empty columns don't take up space.
+  
+  Resolves #65 
+---
+
 - ### Column Refactor + Jumpmenu update
   Big refactors to how columns are built to be more dynamic rather than prewritten divs per column. This decision was made to cleanup the code and to add in information for column eminence. Main and auxiliary columns need to be labeled as such for jump navs to render properly.
   
