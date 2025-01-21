@@ -22,6 +22,29 @@
 {% set frame_classes = ['ucb-content-frame', frameColor, frameStyle] %}
 {% set columnHeight = settings.column_equal_height == '1' ? 'd-flex flex-wrap' : '' %}
 {% set regions = ['first', 'second', 'third', 'fourth'] %}
+{% if settings.background_image_styles %}
+  {% set row_overlay_settings = settings.overlay_color == 'black' 
+    ? 'ucb-bootstrap-layout-section-overlay-dark' 
+    : settings.overlay_color == 'white' 
+    ? 'ucb-bootstrap-layout-section-overlay-light' 
+    : 'ucb-bootstrap-layout-section-overlay-none' %}
+{% else %}
+  {% set row_overlay_settings = '' %}
+{% endif %}
+
+{% set row_background_effect = settings.background_effect == 'fixed' 
+  ? 'fixed-background' 
+  : settings.background_effect == 'parallax' 
+  ? 'jarallax' 
+  : 'scrolling-background' %}
+
+{% if settings.background_effect == 'parallax' %}
+  <script>
+    window.onload = function () {
+      jarallax(document.querySelectorAll('.jarallax'), {speed: 0.2});
+    };
+  </script>
+{% endif %}
 
 <style>
   .ucb-bootstrap-layout-section.section-{{sectionID}}{
@@ -72,7 +95,7 @@
 </style>
 
 {% if content %}
-  <div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }}">
+  <div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
     <div class="container ucb-contained-row">
       <div {{ attributes.addClass(row_classes, frame_classes|join(' ')) }} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
         {% for i in 0..(regions|length - 1) %}
