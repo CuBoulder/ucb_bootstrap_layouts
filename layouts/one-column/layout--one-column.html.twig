@@ -96,7 +96,7 @@
     <div class="container ucb-contained-row">
       <div {{ attributes.addClass(row_classes, frame_classes|join(' ')) }} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
         {% for region in ['first'] %}
-          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form>')|trim != '' %}
+          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form><collection-grid><article-grid-block><article-slider-block><category-cloud-block><current-issue-block><tag-cloud-block><people-list-block><ucb-newsletter-list><latest-issue-block><article-feature-block><status-page-block><faculty-publications><article-list-block>')|trim != '' %}
             <div {{ region_attributes[region].addClass('column', 'column--' ~ region, 'col-12', 'main-column') }}>
               {{ content[region] }}
             </div>
