@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Background images fix
+  These changes fix background images for the multicolumn layouts. 
+  Added back in are the overlay options, scroll effect options, as well as actually applying these options to the section.
+  
+  Resolves #67
+---
+
 - ### Update layout--two-column.html.twig
   The `flex-grow-1` was dropped from the rework of the layouts. 
   This adds that back for the two column layout which makes it so empty columns don't take up space.
