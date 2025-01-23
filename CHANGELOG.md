@@ -9,6 +9,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Updated Tag Strip List
+  Updated the tag strip list to have the full breadth of our jsonapi web components.
+  
+  Full list:
+  ```
+  <img>
+  <iframe>
+  <slate-form>
+  <collection-grid>
+  <article-grid-block>
+  <article-slider-block>
+  <category-cloud-block>
+  <current-issue-block>
+  <tag-cloud-block>
+  <people-list-block>
+  <ucb-newsletter-list>
+  <latest-issue-block>
+  <article-feature-block>
+  <status-page-block>
+  <faculty-publications>
+  <article-list-block>
+  ```
+  
+  Resolves #69
+---
+
 - ### Background images fix
   These changes fix background images for the multicolumn layouts. 
   Added back in are the overlay options, scroll effect options, as well as actually applying these options to the section.

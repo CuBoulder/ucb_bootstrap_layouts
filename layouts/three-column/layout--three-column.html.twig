@@ -103,7 +103,7 @@
           {% set region = regions[i] %}
           {% set width = column_widths[i] %}
           {% set column_class = all_equal or width == max_width ? 'main-column' : 'auxiliary-column' %}
-          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form>')|trim != '' %}
+          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form><collection-grid><article-grid-block><article-slider-block><category-cloud-block><current-issue-block><tag-cloud-block><people-list-block><ucb-newsletter-list><latest-issue-block><article-feature-block><status-page-block><faculty-publications><article-list-block>')|trim != '' %}
             <div {{ region_attributes[region].addClass('column', column_class, columnHeight, 'col-lg-' ~ width, 'column--' ~ region, 'col-12') }}>
               {{ content[region] }}
             </div>
