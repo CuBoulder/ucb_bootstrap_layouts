@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update and remove tag strips
+  Updated the two column tag strip to allow the events calendar.
+  
+  Removed the strip from the other layouts (one column, three column, four column, and edge-to-edge) because they do not need the check as their columns don't expand like the two column does.
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/1581
+---
+
 - ### Updated Tag Strip List
   Updated the tag strip list to have the full breadth of our jsonapi web components.
   

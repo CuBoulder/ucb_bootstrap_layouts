@@ -18,6 +18,7 @@
 {% set column_widths = settings.column_width|split('-') %}
 {% set row_classes = ['row', 'ucb-bootstrap-layout__row', 'ucb-bootstrap-layout__row--three-column'] %}
 {% set frameStyle = settings.content_frame_color == 'none' ? 'content-frame-unstyled' : 'content-frame-styled' %}
+{% set frameColor = 'content-frame-' ~ settings.content_frame_color %}
 {% set frame_classes = ['ucb-content-frame', frameColor, frameStyle] %}
 {% set columnHeight = settings.column_equal_height == '1' ? 'd-flex flex-wrap' : '' %}
 {% set regions = ['first', 'second', 'third'] %}
@@ -103,7 +104,7 @@
           {% set region = regions[i] %}
           {% set width = column_widths[i] %}
           {% set column_class = all_equal or width == max_width ? 'main-column' : 'auxiliary-column' %}
-          {% if content[region] and content[region]|render|striptags('<img><iframe><slate-form><collection-grid><article-grid-block><article-slider-block><category-cloud-block><current-issue-block><tag-cloud-block><people-list-block><ucb-newsletter-list><latest-issue-block><article-feature-block><status-page-block><faculty-publications><article-list-block>')|trim != '' %}
+          {% if content[region] %}
             <div {{ region_attributes[region].addClass('column', column_class, columnHeight, 'col-lg-' ~ width, 'column--' ~ region, 'col-12') }}>
               {{ content[region] }}
             </div>
