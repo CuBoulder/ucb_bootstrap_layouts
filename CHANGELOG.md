@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### D11 version bump
+  D11 version bump
+---
+
 - ### Update and remove tag strips
   Updated the two column tag strip to allow the events calendar.
   
