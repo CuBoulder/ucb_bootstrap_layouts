@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Padding and hidden files
+  Refactor had left/right padding was inlined onto the frame so options where applying correctly.
+  Space needed for the `<style>` padding options to apply to the `ucb_content_frame`
+  
+  Removing .DS_Store file
+  
+  Resolves #74 
+---
+
 - ### D11 version bump
   D11 version bump
 ---
