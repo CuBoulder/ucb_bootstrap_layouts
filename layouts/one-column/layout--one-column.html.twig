@@ -51,7 +51,7 @@
     ;
   }
 
-  .section-{{sectionID}}.ucb-content-frame {
+  .section-{{sectionID}} .ucb-content-frame {
     padding-left: {{settings.section_mobile_padding_left}}
     ;
     padding-right: {{settings.section_mobile_padding_right}}
@@ -66,7 +66,7 @@
       ;
     }
 
-    .section-{{sectionID}}.ucb-content-frame {
+    .section-{{sectionID}} .ucb-content-frame {
       padding-left: {{settings.section_tablet_padding_left}}
       ;
       padding-right: {{settings.section_tablet_padding_right}}
@@ -82,7 +82,7 @@
       ;
     }
 
-    .section-{{sectionID}}.ucb-content-frame {
+    .section-{{sectionID}} .ucb-content-frame {
       padding-left: {{settings.section_padding_left}}
       ;
       padding-right: {{settings.section_padding_right}}
@@ -94,7 +94,7 @@
 {% if content %}
   <div class="ucb-bootstrap-layout-section section-{{ sectionID }} ucb-bootstrap-layout__background-color--{{ settings.background_color }} {{ row_overlay_settings }} {{ row_background_effect }}" style="{{ settings.background_image_styles }}">
     <div class="container ucb-contained-row">
-      <div {{ attributes.addClass(row_classes, frame_classes|join(' ')) }} style="padding-left: {{ settings.section_padding_left }}; padding-right: {{ settings.section_padding_right }};">
+      <div {{ attributes.addClass(row_classes, frame_classes|join(' ')) }}>
         {% for region in ['first'] %}
           {% if content[region] %}
             <div {{ region_attributes[region].addClass('column', 'column--' ~ region, 'col-12', 'main-column') }}>
