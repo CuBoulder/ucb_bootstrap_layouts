@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### add missing content frame option
+  Missing `frameStyle` added back in for content frame styles.
+  
+  
+---
+
 - ### Padding and hidden files
   Refactor had left/right padding was inlined onto the frame so options where applying correctly.
   Space needed for the `<style>` padding options to apply to the `ucb_content_frame`
