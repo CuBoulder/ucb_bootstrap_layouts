@@ -17,7 +17,8 @@
 {% set sectionID = settings.sectionID %}
 {% set row_classes = ['row', 'ucb-bootstrap-layout__row', 'ucb-bootstrap-layout__row--one-column'] %}
 {% set frameColor = 'content-frame-' ~ settings.content_frame_color %}
-{% set frame_classes = ['ucb-content-frame', frameColor] %}
+{% set frameStyle = settings.content_frame_color == 'none' ? 'content-frame-unstyled' : 'content-frame-styled' %}
+{% set frame_classes = ['ucb-content-frame', frameColor, frameStyle] %}
 
 {% if settings.background_image_styles %}
   {% set row_overlay_settings = settings.overlay_color == 'black' 
