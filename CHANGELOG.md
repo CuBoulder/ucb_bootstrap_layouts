@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Discovery
+  Add `<trusted-content-share>` tag so that two column content will display syndicated content blocks properly.
+---
+
 - ### add missing content frame option
   Missing `frameStyle` added back in for content frame styles.
   
