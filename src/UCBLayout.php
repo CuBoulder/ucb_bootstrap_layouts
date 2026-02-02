@@ -67,7 +67,13 @@ final class UCBLayout {
 
   public const ROW_BACKGROUND_COLOR_LIGHT_GREEN = 'light-green';
 
-  public const ROW_BACKGROUND_COLOR_BRICK= 'brick';
+  public const ROW_BACKGROUND_COLOR_BRICK = 'brick';
+
+  public const ROW_BACKGROUND_COLOR_ALERT_RED = 'alert-red';
+
+  public const ROW_BACKGROUND_COLOR_ALERT_ORANGE = 'alert-orange';
+
+  public const ROW_BACKGROUND_COLOR_ALERT_YELLOW = 'alert-yellow';
 
   public const ROW_OVERLAY_COLOR_NONE = 'none';
 
