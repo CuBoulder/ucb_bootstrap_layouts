@@ -495,6 +495,9 @@ abstract class LayoutBase extends LayoutDefault
       UCBLayout::ROW_BACKGROUND_COLOR_DARK_BLUE => $this->t('Dark Blue'),
       UCBLayout::ROW_BACKGROUND_COLOR_LIGHT_GREEN => $this->t('Light Green'),
       UCBLayout::ROW_BACKGROUND_COLOR_BRICK => $this->t('Brick'),
+      UCBLayout::ROW_BACKGROUND_COLOR_ALERT_RED => $this->t('Alert Red'),
+      UCBLayout::ROW_BACKGROUND_COLOR_ALERT_ORANGE => $this->t('Alert Orange'),
+      UCBLayout::ROW_BACKGROUND_COLOR_ALERT_YELLOW => $this->t('Alert Yellow'),
     ];
   }
 

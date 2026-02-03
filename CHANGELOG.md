@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### 3 alert colors
+  Add background color options for alerts
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/1745
+  Sister PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/222
+  Sister PR: https://github.com/CuBoulder/ucb_styled_block/pull/5
+---
+
 - ### Discovery
   Add `<trusted-content-share>` tag so that two column content will display syndicated content blocks properly.
 ---
