@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Hero Unit - undefined array key 'label' warning suppressed
+  This change eliminates a warning for the Hero Unit that would sometimes occur:
+  `Warning: Undefined array key "label" in Drupal\layout_builder\Form\ConfigureSectionForm->buildForm() (line 136 of /var/www/html/web/core/modules/layout_builder/src/Form/ConfigureSectionForm.php)`
+  
+  This seemed to be caused by our plugin’s configuration not including a `label` key, but Layout Builder’s ConfigureSectionForm expected it.
+  
+  Resolves https://github.com/CuBoulder/tiamat-theme/issues/1747
+---
+
 - ### 3 alert colors
   Add background color options for alerts
   

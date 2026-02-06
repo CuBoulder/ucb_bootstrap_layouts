@@ -59,6 +59,7 @@ abstract class LayoutBase extends LayoutDefault
   public function defaultConfiguration(): array
   {
     return [
+      'label' => '',
       'background_color' => UCBLayout::ROW_BACKGROUND_COLOR_NONE,
       'content_frame_color' => UCBLayout::ROW_CONTENT_FRAME_COLOR_NONE,
       'background_image' == NULL,
