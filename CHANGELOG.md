@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Alert Pink Option
+  Add Alert Pink option for section backgroudns
+  
+  Sister PR: https://github.com/CuBoulder/tiamat-theme/pull/1758
+  Sister PR: https://github.com/CuBoulder/ucb_styled_block/pull/6
+  Sister PR: https://github.com/CuBoulder/tiamat-custom-entities/pull/224
+---
+
 - ### Hero Unit - undefined array key 'label' warning suppressed
   This change eliminates a warning for the Hero Unit that would sometimes occur:
   `Warning: Undefined array key "label" in Drupal\layout_builder\Form\ConfigureSectionForm->buildForm() (line 136 of /var/www/html/web/core/modules/layout_builder/src/Form/ConfigureSectionForm.php)`
