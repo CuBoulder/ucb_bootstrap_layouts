@@ -75,6 +75,8 @@ final class UCBLayout {
 
   public const ROW_BACKGROUND_COLOR_ALERT_YELLOW = 'alert-yellow';
 
+  public const ROW_BACKGROUND_COLOR_ALERT_PINK = 'alert-pink';
+
   public const ROW_OVERLAY_COLOR_NONE = 'none';
 
   public const ROW_OVERLAY_COLOR_BLACK = 'black';
