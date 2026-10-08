@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- ### Update LayoutBase.php
+  Update the default configuration for equal column height. This is to avoid null 0 errors on the single column layout.
+  
+  Test by adding a single column layout and not receive the UI warning.
+  
+  Resolves #81 
+---
+
 - ### Alert Pink Option
   Add Alert Pink option for section backgroudns
   

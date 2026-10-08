@@ -424,8 +424,8 @@ abstract class LayoutBase extends LayoutDefault
       $this->configuration['background_color'] = $values['background']['background_color'];
       /*$this->configuration['class'] = $values['extra']['class'];*/
       $this->configuration['background_image'] = $values['background']['background_image'] ?? NULL;
-      $this->configuration['column_width'] = $values['layout']['column_width'];
-      $this->configuration['column_equal_height'] = $values['layout']['column_equal_height'];
+      $this->configuration['column_width'] = $values['layout']['column_width'] ?? $this->configuration['column_width'];
+      $this->configuration['column_equal_height'] = $values['layout']['column_equal_height'] ?? 0;
       $this->configuration['background_image_styles'] = $new_styles;
       $this->configuration['overlay_color'] = $values['background']['overlay_color'];
       $this->configuration['background_effect'] = $values['background']['background_effect'];
